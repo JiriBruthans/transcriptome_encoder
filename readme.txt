@@ -1,1 +1,4 @@
-You will need Homo_sapiens.GRCh38.gene_symbol_to_embedding_ESM2.pt to run the model
+Total parameters: 203,866,377
+Trainable parameters: 102,541,577
+
+GPT2 - 124 000 000

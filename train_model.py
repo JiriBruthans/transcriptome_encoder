@@ -63,7 +63,7 @@ class TransformerModel(nn.Module):
                                                   nn.GELU(),
                                                   nn.LayerNorm(d_model))
 
-        self.pe_embedding = nn.Embedding.from_pretrained('embedding_layer.pt')
+        self.pe_embedding = nn.Embedding.from_pretrained(torch.load('embedding_layer.pt'))
         self.cls_token = nn.Parameter(torch.randn(1, 1, d_model))
         self.pe_embedding.requires_grad_(False)
 
@@ -108,7 +108,7 @@ model = TransformerModel(
 )
 
 model.eval()
-model.to('cuda')
+model.to('cpu')
 
 # ... after model initialization ...
 trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
