@@ -1,12 +1,13 @@
-"""
-Model class
-
-"""
-
 import math
 from torch import nn, Tensor
 from torch.nn import TransformerEncoder, TransformerEncoderLayer
 import torch
+
+
+
+################################################################################
+########################## Model definition ####################################
+################################################################################
 
 # Model configuration
 TOKEN_DIM = 5120  # ESM-2 embedding dimension
@@ -62,19 +63,26 @@ class TransformerModel(nn.Module):
                                                   nn.GELU(),
                                                   nn.LayerNorm(d_model))
 
-        self.pe_embedding = None
+        self.pe_embedding = nn.Embedding.from_pretrained('embedding_layer.pt')
+        self.cls_token = nn.Parameter(torch.randn(1, 1, d_model))
+        self.pe_embedding.requires_grad_(False)
 
     def forward(self, src: Tensor, mask: Tensor):
         """
         Args:
-            src: Tensor, shape [seq_len, batch_size]
+            src: Tensor, shape [set_size, batch_size, token_dim]
         Returns:
-            output Tensor of shape [seq_len, batch_size, ntoken]
+            output Tensor of shape [set_size, batch_size, ntoken]
         """
         src = self.encoder(src) * math.sqrt(self.d_model)
-        output = self.transformer_encoder(src, src_key_padding_mask=( 1 -mask))
-        embedding = gene_output[0, :, :] # select only the CLS token.
-        embedding = nn.functional.normalize(embedding, dim=1) # Normalize.
+        # Expand cls_token to match batch size
+        batch_size = src.size(1)
+        cls_tokens = self.cls_token.expand(-1, batch_size, -1)
+        # Concatenate cls token to the front of the sequence
+        src = torch.cat((cls_tokens, src), dim=0)
+        output = self.transformer_encoder(src)
+        embedding = output[0, :, :] # select only the CLS token
+        embedding = nn.functional.normalize(embedding, dim=1) # Normalize
         return embedding
 
 
@@ -85,12 +93,25 @@ class TransformerModel(nn.Module):
         return dec
 
 
+################################################################################
+########################## Model initialization ################################
+################################################################################
+
 model = TransformerModel(
     token_dim=TOKEN_DIM,
     d_model=D_MODEL,
-    nhead=NHEAD,
+    nhead=N_HEAD,
     d_hid=D_HID,
-    nlayers=NLAYERS,
+    nlayers=N_LAYERS,
     output_dim=OUTPUT_DIM,
     dropout=DROPOUT
 )
+
+model.eval()
+model.to('cuda')
+
+# ... after model initialization ...
+trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
+total_params = sum(p.numel() for p in model.parameters())
+print(f'Total parameters: {total_params:,}')
+print(f'Trainable parameters: {trainable_params:,}')

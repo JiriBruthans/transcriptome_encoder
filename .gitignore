@@ -1,0 +1,3 @@
+Homo_sapiens.GRCh38.gene_symbol_to_embedding_ESM2.pt
+gene2idx.pt
+embedding_layer.pt
