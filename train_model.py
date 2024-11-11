@@ -3,6 +3,9 @@ from torch import nn, Tensor
 from torch.nn import TransformerEncoder, TransformerEncoderLayer
 import torch
 import cellxgene_census
+import warnings
+import scanpy as sc
+warnings.filterwarnings("ignore")
 
 
 
@@ -126,11 +129,7 @@ census = cellxgene_census.open_soma()
 
 gene_names = torch.load('gene_names.pt')
 
-adata = cellxgene_census.get_anndata(
-    census=census,
-    organism="Homo sapiens",
-    obs_value_filter="tissue_general == 'tongue' and is_primary_data == True",
-)
+adata = sc.read_h5ad('human_tongue.h5ad')
 
 print(adata)
 
@@ -141,6 +140,7 @@ print(adata)
 mask = adata.var["feature_name"].isin(gene_names)
 adata = adata[:, mask]
 print(adata)
+
 
 i = 0
 data = torch.from_numpy(adata.X.toarray())
