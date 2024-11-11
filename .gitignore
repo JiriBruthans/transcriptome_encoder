@@ -1,2 +1,3 @@
 gene_names.pt
+*.pt
 embedding_layer.pt

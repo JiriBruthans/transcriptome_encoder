@@ -2,6 +2,7 @@ import math
 from torch import nn, Tensor
 from torch.nn import TransformerEncoder, TransformerEncoderLayer
 import torch
+import cellxgene_census
 
 
 
@@ -10,6 +11,9 @@ import torch
 ################################################################################
 
 # Model configuration
+batch_size = 1
+set_size = 1024
+
 TOKEN_DIM = 5120  # ESM-2 embedding dimension
 D_MODEL = 1280    # Transformer embedding dimension (output and inner)
 N_HEAD = 20       # Number of attention heads
@@ -67,10 +71,10 @@ class TransformerModel(nn.Module):
         self.cls_token = nn.Parameter(torch.randn(1, 1, d_model))
         self.pe_embedding.requires_grad_(False)
 
-    def forward(self, src: Tensor, mask: Tensor):
+    def forward(self, src: Tensor):
         """
         Args:
-            src: Tensor, shape [set_size, batch_size, token_dim]
+            src: Tensor, shape [set_size, batch_size, token_dim] -- torch.Size([32, 1023, 5120])
         Returns:
             output Tensor of shape [set_size, batch_size, ntoken]
         """
@@ -115,3 +119,43 @@ trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
 total_params = sum(p.numel() for p in model.parameters())
 print(f'Total parameters: {total_params:,}')
 print(f'Trainable parameters: {trainable_params:,}')
+
+
+
+census = cellxgene_census.open_soma()
+
+gene_names = torch.load('gene_names.pt')
+
+adata = cellxgene_census.get_anndata(
+    census=census,
+    organism="Homo sapiens",
+    obs_value_filter="tissue_general == 'tongue' and is_primary_data == True",
+)
+
+print(adata)
+
+mask = ~adata.var["feature_name"].str.contains("ENSG")
+adata = adata[:, mask]
+print(adata)
+
+mask = adata.var["feature_name"].isin(gene_names)
+adata = adata[:, mask]
+print(adata)
+
+i = 0
+data = torch.from_numpy(adata.X.toarray())
+while i < data.shape[0]:
+    if (i + batch_size) < data.shape[0]:
+        batch = data[i:i+batch_size, :]
+        batch = torch.log1p(batch)
+        batch = batch / torch.sum(batch, dim=1, keepdim=True)
+        batch = torch.multinomial(batch, 1023, replacement=True)
+    break
+
+
+batch = model.pe_embedding(batch)
+print(batch.shape)
+
+cell_emb = model(batch)
+print(cell_emb.shape)
+torch.save(cell_emb, 'cell_emb.pt')
