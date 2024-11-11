@@ -1,5 +1,4 @@
 #! /bin/bash
-set -e  # Exit on error
 
 export TMPDIR=$SCRATCHDIR
 cd $SCRATCHDIR
