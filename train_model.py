@@ -156,6 +156,8 @@ while i < data.shape[0]:
 batch = model.pe_embedding(batch)
 print(batch.shape)
 
+batch = batch.permute(1, 0, 2)
+
 cell_emb = model(batch)
 print(cell_emb.shape)
 torch.save(cell_emb, 'cell_emb.pt')
