@@ -1,4 +1,4 @@
-name: transcriptome_encoder
+name: txn-enc
 channels:
   - pytorch
   - conda-forge
