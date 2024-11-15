@@ -957,3 +957,1263 @@ Tokens per second: 71092.39
 Final embeddings shape: torch.Size([15020, 1280])
 Total processing time: 136.83s
 Average tokens per second: 112407.93
+Using device: cuda
+Total parameters: 191,806,465
+Trainable parameters: 91,633,665
+src.shape torch.Size([1024, 128, 1280])
+embedding.shape torch.Size([128, 1280])
+Traceback (most recent call last):
+  File "/scratch.ssd/jiribruthans/job_6489502.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 183, in <module>
+    sample_from_model(model)
+  File "/scratch.ssd/jiribruthans/job_6489502.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 161, in sample_from_model
+    cell_emb = model(batch)
+  File "/scratch.ssd/jiribruthans/job_6489502.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6489502.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6489502.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 86, in forward
+    prob_ex = self.binary_decoder(torch.cat((embedding.expand(batch_size, -1), src[1:, :, :])))
+RuntimeError: Tensors must have same number of dimensions: got 2 and 3
+Using device: cuda
+Total parameters: 185,441,280
+Trainable parameters: 85,268,480
+torch.Size([128, 1280])
+Processed 0/15020 cells
+Batch processing time: 1.320s
+Tokens per second: 99289.03
+torch.Size([128, 1280])
+Processed 128/15020 cells
+Batch processing time: 0.002s
+Tokens per second: 61480184.96
+torch.Size([128, 1280])
+Processed 256/15020 cells
+Batch processing time: 0.002s
+Tokens per second: 76493086.67
+torch.Size([128, 1280])
+Processed 384/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 98170681.05
+torch.Size([128, 1280])
+Processed 512/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 87610488.27
+torch.Size([128, 1280])
+Processed 640/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 99019418.93
+torch.Size([128, 1280])
+Processed 768/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 103805856.10
+torch.Size([128, 1280])
+Processed 896/15020 cells
+Batch processing time: 0.002s
+Tokens per second: 86398839.21
+torch.Size([128, 1280])
+Processed 1024/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 91886313.54
+torch.Size([128, 1280])
+Processed 1152/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 101618449.89
+torch.Size([128, 1280])
+Processed 1280/15020 cells
+Batch processing time: 0.002s
+Tokens per second: 87014215.56
+torch.Size([128, 1280])
+Processed 1408/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 98275976.74
+torch.Size([128, 1280])
+Processed 1536/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 96380752.79
+torch.Size([128, 1280])
+Processed 1664/15020 cells
+Batch processing time: 0.065s
+Tokens per second: 2024659.57
+torch.Size([128, 1280])
+Processed 1792/15020 cells
+Batch processing time: 1.189s
+Tokens per second: 110196.02
+torch.Size([128, 1280])
+Processed 1920/15020 cells
+Batch processing time: 1.177s
+Tokens per second: 111345.72
+torch.Size([128, 1280])
+Processed 2048/15020 cells
+Batch processing time: 1.182s
+Tokens per second: 110852.06
+torch.Size([128, 1280])
+Processed 2176/15020 cells
+Batch processing time: 1.185s
+Tokens per second: 110599.90
+torch.Size([128, 1280])
+Processed 2304/15020 cells
+Batch processing time: 1.185s
+Tokens per second: 110645.93
+torch.Size([128, 1280])
+Processed 2432/15020 cells
+Batch processing time: 1.186s
+Tokens per second: 110511.28
+torch.Size([128, 1280])
+Processed 2560/15020 cells
+Batch processing time: 1.186s
+Tokens per second: 110558.97
+torch.Size([128, 1280])
+Processed 2688/15020 cells
+Batch processing time: 1.191s
+Tokens per second: 110035.82
+torch.Size([128, 1280])
+Processed 2816/15020 cells
+Batch processing time: 1.195s
+Tokens per second: 109718.21
+torch.Size([128, 1280])
+Processed 2944/15020 cells
+Batch processing time: 1.189s
+Tokens per second: 110266.88
+torch.Size([128, 1280])
+Processed 3072/15020 cells
+Batch processing time: 1.199s
+Tokens per second: 109313.88
+torch.Size([128, 1280])
+Processed 3200/15020 cells
+Batch processing time: 1.200s
+Tokens per second: 109229.09
+torch.Size([128, 1280])
+Processed 3328/15020 cells
+Batch processing time: 1.201s
+Tokens per second: 109166.93
+torch.Size([128, 1280])
+Processed 3456/15020 cells
+Batch processing time: 1.201s
+Tokens per second: 109098.12
+torch.Size([128, 1280])
+Processed 3584/15020 cells
+Batch processing time: 1.216s
+Tokens per second: 107751.16
+torch.Size([128, 1280])
+Processed 3712/15020 cells
+Batch processing time: 1.194s
+Tokens per second: 109761.63
+torch.Size([128, 1280])
+Processed 3840/15020 cells
+Batch processing time: 1.195s
+Tokens per second: 109727.01
+torch.Size([128, 1280])
+Processed 3968/15020 cells
+Batch processing time: 1.207s
+Tokens per second: 108623.50
+torch.Size([128, 1280])
+Processed 4096/15020 cells
+Batch processing time: 1.202s
+Tokens per second: 109082.32
+torch.Size([128, 1280])
+Processed 4224/15020 cells
+Batch processing time: 1.217s
+Tokens per second: 107689.91
+torch.Size([128, 1280])
+Processed 4352/15020 cells
+Batch processing time: 1.214s
+Tokens per second: 107972.80
+torch.Size([128, 1280])
+Processed 4480/15020 cells
+Batch processing time: 1.203s
+Tokens per second: 108961.01
+torch.Size([128, 1280])
+Processed 4608/15020 cells
+Batch processing time: 1.218s
+Tokens per second: 107640.53
+torch.Size([128, 1280])
+Processed 4736/15020 cells
+Batch processing time: 1.222s
+Tokens per second: 107271.81
+torch.Size([128, 1280])
+Processed 4864/15020 cells
+Batch processing time: 1.219s
+Tokens per second: 107527.41
+torch.Size([128, 1280])
+Processed 4992/15020 cells
+Batch processing time: 1.219s
+Tokens per second: 107544.34
+torch.Size([128, 1280])
+Processed 5120/15020 cells
+Batch processing time: 1.220s
+Tokens per second: 107474.81
+torch.Size([128, 1280])
+Processed 5248/15020 cells
+Batch processing time: 1.221s
+Tokens per second: 107351.48
+torch.Size([128, 1280])
+Processed 5376/15020 cells
+Batch processing time: 1.220s
+Tokens per second: 107404.96
+torch.Size([128, 1280])
+Processed 5504/15020 cells
+Batch processing time: 1.220s
+Tokens per second: 107451.14
+torch.Size([128, 1280])
+Processed 5632/15020 cells
+Batch processing time: 1.221s
+Tokens per second: 107374.58
+torch.Size([128, 1280])
+Processed 5760/15020 cells
+Batch processing time: 1.220s
+Tokens per second: 107459.33
+torch.Size([128, 1280])
+Processed 5888/15020 cells
+Batch processing time: 1.223s
+Tokens per second: 107213.93
+torch.Size([128, 1280])
+Processed 6016/15020 cells
+Batch processing time: 1.217s
+Tokens per second: 107674.54
+torch.Size([128, 1280])
+Processed 6144/15020 cells
+Batch processing time: 1.216s
+Tokens per second: 107828.68
+torch.Size([128, 1280])
+Processed 6272/15020 cells
+Batch processing time: 1.208s
+Tokens per second: 108521.78
+torch.Size([128, 1280])
+Processed 6400/15020 cells
+Batch processing time: 1.230s
+Tokens per second: 106586.55
+torch.Size([128, 1280])
+Processed 6528/15020 cells
+Batch processing time: 1.202s
+Tokens per second: 109040.33
+torch.Size([128, 1280])
+Processed 6656/15020 cells
+Batch processing time: 1.221s
+Tokens per second: 107334.54
+torch.Size([128, 1280])
+Processed 6784/15020 cells
+Batch processing time: 1.237s
+Tokens per second: 105977.15
+torch.Size([128, 1280])
+Processed 6912/15020 cells
+Batch processing time: 1.225s
+Tokens per second: 107012.18
+torch.Size([128, 1280])
+Processed 7040/15020 cells
+Batch processing time: 1.214s
+Tokens per second: 107926.23
+torch.Size([128, 1280])
+Processed 7168/15020 cells
+Batch processing time: 1.229s
+Tokens per second: 106683.22
+torch.Size([128, 1280])
+Processed 7296/15020 cells
+Batch processing time: 1.235s
+Tokens per second: 106133.17
+torch.Size([128, 1280])
+Processed 7424/15020 cells
+Batch processing time: 1.230s
+Tokens per second: 106532.82
+torch.Size([128, 1280])
+Processed 7552/15020 cells
+Batch processing time: 1.208s
+Tokens per second: 108498.09
+torch.Size([128, 1280])
+Processed 7680/15020 cells
+Batch processing time: 1.240s
+Tokens per second: 105661.03
+torch.Size([128, 1280])
+Processed 7808/15020 cells
+Batch processing time: 1.242s
+Tokens per second: 105540.15
+torch.Size([128, 1280])
+Processed 7936/15020 cells
+Batch processing time: 1.237s
+Tokens per second: 105927.45
+torch.Size([128, 1280])
+Processed 8064/15020 cells
+Batch processing time: 1.236s
+Tokens per second: 106037.69
+torch.Size([128, 1280])
+Processed 8192/15020 cells
+Batch processing time: 1.239s
+Tokens per second: 105772.41
+torch.Size([128, 1280])
+Processed 8320/15020 cells
+Batch processing time: 1.222s
+Tokens per second: 107257.87
+torch.Size([128, 1280])
+Processed 8448/15020 cells
+Batch processing time: 1.239s
+Tokens per second: 105788.78
+torch.Size([128, 1280])
+Processed 8576/15020 cells
+Batch processing time: 1.236s
+Tokens per second: 106087.62
+torch.Size([128, 1280])
+Processed 8704/15020 cells
+Batch processing time: 1.230s
+Tokens per second: 106578.36
+torch.Size([128, 1280])
+Processed 8832/15020 cells
+Batch processing time: 1.242s
+Tokens per second: 105502.75
+torch.Size([128, 1280])
+Processed 8960/15020 cells
+Batch processing time: 1.232s
+Tokens per second: 106385.94
+torch.Size([128, 1280])
+Processed 9088/15020 cells
+Batch processing time: 1.238s
+Tokens per second: 105856.75
+torch.Size([128, 1280])
+Processed 9216/15020 cells
+Batch processing time: 1.246s
+Tokens per second: 105203.46
+torch.Size([128, 1280])
+Processed 9344/15020 cells
+Using device: cuda
+Total parameters: 185,441,280
+Trainable parameters: 85,268,480
+torch.Size([64, 1280])
+Processed 0/15020 cells
+Batch processing time: 0.716s
+Tokens per second: 91539.92
+torch.Size([64, 1280])
+Processed 64/15020 cells
+Batch processing time: 0.002s
+Tokens per second: 32982710.22
+torch.Size([64, 1280])
+Processed 128/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 52010956.85
+torch.Size([64, 1280])
+Processed 192/15020 cells
+Batch processing time: 0.002s
+Tokens per second: 42942963.12
+torch.Size([64, 1280])
+Processed 256/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 53992910.42
+torch.Size([64, 1280])
+Processed 320/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 52427600.03
+torch.Size([64, 1280])
+Processed 384/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 53697579.01
+torch.Size([64, 1280])
+Processed 448/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 53603335.99
+torch.Size([64, 1280])
+Processed 512/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 54152463.94
+torch.Size([64, 1280])
+Processed 576/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 46455620.58
+torch.Size([64, 1280])
+Processed 640/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 53897628.81
+torch.Size([64, 1280])
+Processed 704/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 52578023.52
+torch.Size([64, 1280])
+Processed 768/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 54163134.37
+torch.Size([64, 1280])
+Processed 832/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 54377429.66
+torch.Size([64, 1280])
+Processed 896/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 54280787.31
+torch.Size([64, 1280])
+Processed 960/15020 cells
+Batch processing time: 0.578s
+Tokens per second: 113331.85
+torch.Size([64, 1280])
+Processed 1024/15020 cells
+Batch processing time: 0.590s
+Tokens per second: 111073.13
+torch.Size([64, 1280])
+Processed 1088/15020 cells
+Batch processing time: 0.593s
+Tokens per second: 110602.21
+torch.Size([64, 1280])
+Processed 1152/15020 cells
+Batch processing time: 0.592s
+Tokens per second: 110758.91
+torch.Size([64, 1280])
+Processed 1216/15020 cells
+Batch processing time: 0.606s
+Tokens per second: 108196.48
+torch.Size([64, 1280])
+Processed 1280/15020 cells
+Batch processing time: 0.596s
+Tokens per second: 109933.53
+torch.Size([64, 1280])
+Processed 1344/15020 cells
+Batch processing time: 0.604s
+Tokens per second: 108515.85
+torch.Size([64, 1280])
+Processed 1408/15020 cells
+Batch processing time: 0.599s
+Tokens per second: 109431.15
+torch.Size([64, 1280])
+Processed 1472/15020 cells
+Batch processing time: 0.600s
+Tokens per second: 109176.23
+torch.Size([64, 1280])
+Processed 1536/15020 cells
+Batch processing time: 0.601s
+Tokens per second: 109119.93
+torch.Size([64, 1280])
+Processed 1600/15020 cells
+Batch processing time: 0.600s
+Tokens per second: 109253.30
+torch.Size([64, 1280])
+Processed 1664/15020 cells
+Batch processing time: 0.601s
+Tokens per second: 109128.81
+torch.Size([64, 1280])
+Processed 1728/15020 cells
+Batch processing time: 0.597s
+Tokens per second: 109770.00
+torch.Size([64, 1280])
+Processed 1792/15020 cells
+Batch processing time: 0.602s
+Tokens per second: 108837.84
+torch.Size([64, 1280])
+Processed 1856/15020 cells
+Batch processing time: 0.600s
+Tokens per second: 109267.76
+torch.Size([64, 1280])
+Processed 1920/15020 cells
+Batch processing time: 0.601s
+Tokens per second: 109023.81
+torch.Size([64, 1280])
+Processed 1984/15020 cells
+Batch processing time: 0.597s
+Tokens per second: 109763.77
+torch.Size([64, 1280])
+Processed 2048/15020 cells
+Batch processing time: 0.602s
+Tokens per second: 108779.09
+torch.Size([64, 1280])
+Processed 2112/15020 cells
+Batch processing time: 0.598s
+Tokens per second: 109510.14
+torch.Size([64, 1280])
+Processed 2176/15020 cells
+Batch processing time: 0.601s
+Tokens per second: 109106.46
+torch.Size([64, 1280])
+Processed 2240/15020 cells
+Batch processing time: 0.601s
+Tokens per second: 109034.75
+torch.Size([64, 1280])
+Processed 2304/15020 cells
+Batch processing time: 0.599s
+Tokens per second: 109392.39
+torch.Size([64, 1280])
+Processed 2368/15020 cells
+Batch processing time: 0.601s
+Tokens per second: 108992.29
+torch.Size([64, 1280])
+Processed 2432/15020 cells
+Batch processing time: 0.602s
+Tokens per second: 108858.66
+torch.Size([64, 1280])
+Processed 2496/15020 cells
+Batch processing time: 0.607s
+Tokens per second: 108032.59
+torch.Size([64, 1280])
+Processed 2560/15020 cells
+Batch processing time: 0.610s
+Tokens per second: 107351.54
+torch.Size([64, 1280])
+Processed 2624/15020 cells
+Batch processing time: 0.603s
+Tokens per second: 108611.72
+torch.Size([64, 1280])
+Processed 2688/15020 cells
+Batch processing time: 0.609s
+Tokens per second: 107607.98
+torch.Size([64, 1280])
+Processed 2752/15020 cells
+Batch processing time: 0.606s
+Tokens per second: 108067.93
+torch.Size([64, 1280])
+Processed 2816/15020 cells
+Batch processing time: 0.601s
+Tokens per second: 109002.71
+torch.Size([64, 1280])
+Processed 2880/15020 cells
+Batch processing time: 0.613s
+Tokens per second: 106877.20
+torch.Size([64, 1280])
+Processed 2944/15020 cells
+Batch processing time: 0.606s
+Tokens per second: 108068.99
+torch.Size([64, 1280])
+Processed 3008/15020 cells
+Batch processing time: 0.611s
+Tokens per second: 107237.58
+torch.Size([64, 1280])
+Processed 3072/15020 cells
+Batch processing time: 0.610s
+Tokens per second: 107375.23
+torch.Size([64, 1280])
+Processed 3136/15020 cells
+Batch processing time: 0.609s
+Tokens per second: 107582.37
+torch.Size([64, 1280])
+Processed 3200/15020 cells
+Batch processing time: 0.609s
+Tokens per second: 107672.00
+torch.Size([64, 1280])
+Processed 3264/15020 cells
+Batch processing time: 0.610s
+Tokens per second: 107418.79
+torch.Size([64, 1280])
+Processed 3328/15020 cells
+Batch processing time: 0.610s
+Tokens per second: 107507.56
+torch.Size([64, 1280])
+Processed 3392/15020 cells
+Batch processing time: 0.610s
+Tokens per second: 107363.49
+torch.Size([64, 1280])
+Processed 3456/15020 cells
+Batch processing time: 0.609s
+Tokens per second: 107638.40
+torch.Size([64, 1280])
+Processed 3520/15020 cells
+Batch processing time: 0.611s
+Tokens per second: 107280.02
+torch.Size([64, 1280])
+Processed 3584/15020 cells
+Batch processing time: 0.610s
+Tokens per second: 107381.44
+torch.Size([64, 1280])
+Processed 3648/15020 cells
+Batch processing time: 0.613s
+Tokens per second: 106848.62
+torch.Size([64, 1280])
+Processed 3712/15020 cells
+Batch processing time: 0.609s
+Tokens per second: 107573.23
+torch.Size([64, 1280])
+Processed 3776/15020 cells
+Batch processing time: 0.614s
+Tokens per second: 106679.14
+torch.Size([64, 1280])
+Processed 3840/15020 cells
+Batch processing time: 0.613s
+Tokens per second: 106829.27
+torch.Size([64, 1280])
+Processed 3904/15020 cells
+Batch processing time: 0.612s
+Tokens per second: 107075.79
+torch.Size([64, 1280])
+Processed 3968/15020 cells
+Batch processing time: 0.615s
+Tokens per second: 106604.92
+torch.Size([64, 1280])
+Processed 4032/15020 cells
+Batch processing time: 0.613s
+Tokens per second: 106866.23
+torch.Size([64, 1280])
+Processed 4096/15020 cells
+Batch processing time: 0.620s
+Tokens per second: 105673.99
+torch.Size([64, 1280])
+Processed 4160/15020 cells
+Batch processing time: 0.607s
+Tokens per second: 107937.78
+torch.Size([64, 1280])
+Processed 4224/15020 cells
+Batch processing time: 0.618s
+Tokens per second: 106079.02
+torch.Size([64, 1280])
+Processed 4288/15020 cells
+Batch processing time: 0.613s
+Tokens per second: 106907.71
+torch.Size([64, 1280])
+Processed 4352/15020 cells
+Batch processing time: 0.614s
+Tokens per second: 106752.31
+torch.Size([64, 1280])
+Processed 4416/15020 cells
+Batch processing time: 0.615s
+Tokens per second: 106569.66
+torch.Size([64, 1280])
+Processed 4480/15020 cells
+Batch processing time: 0.618s
+Tokens per second: 106072.43
+torch.Size([64, 1280])
+Processed 4544/15020 cells
+Batch processing time: 0.618s
+Tokens per second: 106019.17
+torch.Size([64, 1280])
+Processed 4608/15020 cells
+Batch processing time: 0.615s
+Tokens per second: 106634.32
+torch.Size([64, 1280])
+Processed 4672/15020 cells
+Batch processing time: 0.615s
+Tokens per second: 106579.58
+torch.Size([64, 1280])
+Traceback (most recent call last):
+  File "/scratch.ssd/jiribruthans/job_6489502.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 89, in <module>
+    model = TransformerModel(
+  File "/scratch.ssd/jiribruthans/job_6489502.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 54, in __init__
+    self.decoder = nn.Sequential(full_block(d_model, j))
+NameError: name 'j' is not defined
+Using device: cuda
+Total parameters: 185,441,280
+Trainable parameters: 85,268,480
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 0/15020 cells
+Batch processing time: 0.730s
+Tokens per second: 89803.23
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 64/15020 cells
+Batch processing time: 0.002s
+Tokens per second: 33818640.13
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 128/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 49724657.55
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 192/15020 cells
+Batch processing time: 0.002s
+Tokens per second: 38455219.21
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 256/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 50659400.47
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 320/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 53939934.64
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 384/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 53446997.27
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 448/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 52198615.07
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 512/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 48411043.84
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 576/15020 cells
+Batch processing time: 0.002s
+Tokens per second: 40536485.32
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 640/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 50931611.44
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 704/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 53676607.49
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 768/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 52628356.68
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 832/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 52317835.35
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 896/15020 cells
+Batch processing time: 0.121s
+Tokens per second: 540926.81
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 960/15020 cells
+Batch processing time: 0.608s
+Tokens per second: 107812.47
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 1024/15020 cells
+Batch processing time: 0.591s
+Tokens per second: 110813.11
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 1088/15020 cells
+Batch processing time: 0.604s
+Tokens per second: 108591.30
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 1152/15020 cells
+Batch processing time: 0.599s
+Tokens per second: 109494.31
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 1216/15020 cells
+Batch processing time: 0.602s
+Tokens per second: 108878.79
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 1280/15020 cells
+Batch processing time: 0.601s
+Tokens per second: 108994.45
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 1344/15020 cells
+Batch processing time: 0.602s
+Tokens per second: 108869.65
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 1408/15020 cells
+Batch processing time: 0.601s
+Tokens per second: 109113.00
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 1472/15020 cells
+Batch processing time: 0.599s
+Tokens per second: 109440.03
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 1536/15020 cells
+Batch processing time: 0.601s
+Tokens per second: 109032.28
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 1600/15020 cells
+Batch processing time: 0.600s
+Tokens per second: 109277.97
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 1664/15020 cells
+Batch processing time: 0.601s
+Tokens per second: 109115.90
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 1728/15020 cells
+Batch processing time: 0.597s
+Tokens per second: 109783.50
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 1792/15020 cells
+Batch processing time: 0.603s
+Tokens per second: 108764.11
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 1856/15020 cells
+Batch processing time: 0.599s
+Tokens per second: 109406.71
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 1920/15020 cells
+Batch processing time: 0.601s
+Tokens per second: 109009.45
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 1984/15020 cells
+Batch processing time: 0.600s
+Tokens per second: 109264.94
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 2048/15020 cells
+Batch processing time: 0.599s
+Tokens per second: 109329.56
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 2112/15020 cells
+Batch processing time: 0.600s
+Tokens per second: 109212.49
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 2176/15020 cells
+Batch processing time: 0.599s
+Tokens per second: 109338.47
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 2240/15020 cells
+Batch processing time: 0.601s
+Tokens per second: 109134.79
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 2304/15020 cells
+Batch processing time: 0.600s
+Tokens per second: 109285.18
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 2368/15020 cells
+Batch processing time: 0.600s
+Tokens per second: 109180.31
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 2432/15020 cells
+Batch processing time: 0.600s
+Tokens per second: 109179.74
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 2496/15020 cells
+Batch processing time: 0.599s
+Tokens per second: 109412.50
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 2560/15020 cells
+Batch processing time: 0.604s
+Tokens per second: 108495.11
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 2624/15020 cells
+Batch processing time: 0.611s
+Tokens per second: 107328.48
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 2688/15020 cells
+Batch processing time: 0.607s
+Tokens per second: 107979.20
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 2752/15020 cells
+Batch processing time: 0.598s
+Tokens per second: 109532.62
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 2816/15020 cells
+Batch processing time: 0.601s
+Tokens per second: 109038.60
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 2880/15020 cells
+Batch processing time: 0.599s
+Tokens per second: 109430.88
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 2944/15020 cells
+Batch processing time: 0.601s
+Tokens per second: 109016.80
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 3008/15020 cells
+Batch processing time: 0.601s
+Tokens per second: 108999.68
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 3072/15020 cells
+Batch processing time: 0.613s
+Tokens per second: 106857.93
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 3136/15020 cells
+Batch processing time: 0.605s
+Tokens per second: 108296.99
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 3200/15020 cells
+Batch processing time: 0.600s
+Tokens per second: 109227.94
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 3264/15020 cells
+Batch processing time: 0.612s
+Tokens per second: 106999.68
+batch_counts.shape torch.Size([64, 19565])
+torch.Size([64, 1280])
+Processed 3328/15020 cells
+Batch processing time: 0.606s
+Tokens per second: 108102.01
+batch_counts.shape torch.Size([64, 19565])
+Using device: cuda
+Total parameters: 444,834,925
+Trainable parameters: 344,662,125
+torch.Size([64, 1280])
+Traceback (most recent call last):
+  File "/scratch.ssd/jiribruthans/job_6489502.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 189, in <module>
+    sample_from_model(model)
+  File "/scratch.ssd/jiribruthans/job_6489502.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 167, in sample_from_model
+    cell_emb = model(batch, batch_counts)
+  File "/scratch.ssd/jiribruthans/job_6489502.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6489502.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6489502.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 86, in forward
+    msa_loss = torch.nn.MSALoss()
+AttributeError: module 'torch.nn' has no attribute 'MSALoss'. Did you mean: 'MSELoss'?
+Using device: cuda
+Total parameters: 444,834,925
+Trainable parameters: 344,662,125
+torch.Size([64, 1280])
+Traceback (most recent call last):
+  File "/scratch.ssd/jiribruthans/job_6489502.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 189, in <module>
+    sample_from_model(model)
+  File "/scratch.ssd/jiribruthans/job_6489502.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 167, in sample_from_model
+    cell_emb = model(batch, batch_counts)
+  File "/scratch.ssd/jiribruthans/job_6489502.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6489502.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6489502.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 92, in forward
+    loss.backward()
+  File "/scratch.ssd/jiribruthans/job_6489502.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/_tensor.py", line 581, in backward
+    torch.autograd.backward(
+  File "/scratch.ssd/jiribruthans/job_6489502.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/autograd/__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "/scratch.ssd/jiribruthans/job_6489502.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/autograd/graph.py", line 825, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+RuntimeError: element 0 of tensors does not require grad and does not have a grad_fn
+Using device: cuda
+Total parameters: 444,834,925
+Trainable parameters: 344,662,125
+torch.Size([64, 1280])
+Traceback (most recent call last):
+  File "/scratch.ssd/jiribruthans/job_6489502.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 189, in <module>
+    sample_from_model(model)
+  File "/scratch.ssd/jiribruthans/job_6489502.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 167, in sample_from_model
+    cell_emb = model(batch, batch_counts)
+  File "/scratch.ssd/jiribruthans/job_6489502.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6489502.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6489502.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 92, in forward
+    loss.backward()
+  File "/scratch.ssd/jiribruthans/job_6489502.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/_tensor.py", line 581, in backward
+    torch.autograd.backward(
+  File "/scratch.ssd/jiribruthans/job_6489502.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/autograd/__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "/scratch.ssd/jiribruthans/job_6489502.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/autograd/graph.py", line 825, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+RuntimeError: element 0 of tensors does not require grad and does not have a grad_fn
+Using device: cuda
+Total parameters: 444,834,925
+Trainable parameters: 344,662,125
+torch.Size([64, 1280])
+Processed 0/15020 cells
+Batch processing time: 0.716s
+Tokens per second: 91514.90
+torch.Size([64, 1280])
+Processed 64/15020 cells
+Batch processing time: 0.002s
+Tokens per second: 29130765.89
+torch.Size([64, 1280])
+Processed 128/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 45381856.85
+torch.Size([64, 1280])
+Processed 192/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 45989276.72
+torch.Size([64, 1280])
+Processed 256/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 45729147.72
+torch.Size([64, 1280])
+Processed 320/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 47655670.41
+torch.Size([64, 1280])
+Processed 384/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 46636903.11
+torch.Size([64, 1280])
+Processed 448/15020 cells
+Batch processing time: 0.002s
+Tokens per second: 42172124.42
+torch.Size([64, 1280])
+Processed 512/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 46260166.10
+torch.Size([64, 1280])
+Processed 576/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 46907492.65
+torch.Size([64, 1280])
+Processed 640/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 46963592.51
+torch.Size([64, 1280])
+Processed 704/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 47482796.16
+torch.Size([64, 1280])
+Processed 768/15020 cells
+Batch processing time: 0.176s
+Tokens per second: 371592.21
+torch.Size([64, 1280])
+Processed 832/15020 cells
+Batch processing time: 0.604s
+Tokens per second: 108507.11
+torch.Size([64, 1280])
+Processed 896/15020 cells
+Batch processing time: 0.583s
+Tokens per second: 112504.84
+torch.Size([64, 1280])
+Processed 960/15020 cells
+Batch processing time: 0.608s
+Tokens per second: 107759.13
+torch.Size([64, 1280])
+Processed 1024/15020 cells
+Batch processing time: 0.598s
+Tokens per second: 109635.02
+torch.Size([64, 1280])
+Processed 1088/15020 cells
+Batch processing time: 0.603s
+Tokens per second: 108689.97
+torch.Size([64, 1280])
+Processed 1152/15020 cells
+Batch processing time: 0.602s
+Tokens per second: 108859.13
+torch.Size([64, 1280])
+Processed 1216/15020 cells
+Batch processing time: 0.598s
+Tokens per second: 109501.90
+torch.Size([64, 1280])
+Processed 1280/15020 cells
+Batch processing time: 0.599s
+Tokens per second: 109469.32
+torch.Size([64, 1280])
+Processed 1344/15020 cells
+Batch processing time: 0.600s
+Tokens per second: 109243.66
+torch.Size([64, 1280])
+Processed 1408/15020 cells
+Batch processing time: 0.602s
+Tokens per second: 108792.48
+torch.Size([64, 1280])
+Processed 1472/15020 cells
+Batch processing time: 0.599s
+Tokens per second: 109377.20
+torch.Size([64, 1280])
+Processed 1536/15020 cells
+Batch processing time: 0.598s
+Tokens per second: 109543.97
+torch.Size([64, 1280])
+Processed 1600/15020 cells
+Batch processing time: 0.596s
+Tokens per second: 110000.49
+torch.Size([64, 1280])
+Processed 1664/15020 cells
+Batch processing time: 0.604s
+Tokens per second: 108457.57
+torch.Size([64, 1280])
+Processed 1728/15020 cells
+Batch processing time: 0.601s
+Tokens per second: 109029.86
+torch.Size([64, 1280])
+Processed 1792/15020 cells
+Batch processing time: 0.600s
+Tokens per second: 109191.02
+torch.Size([64, 1280])
+Processed 1856/15020 cells
+Batch processing time: 0.599s
+Tokens per second: 109407.23
+torch.Size([64, 1280])
+Processed 1920/15020 cells
+Batch processing time: 0.601s
+Tokens per second: 109075.72
+torch.Size([64, 1280])
+Processed 1984/15020 cells
+Batch processing time: 0.599s
+Tokens per second: 109384.86
+torch.Size([64, 1280])
+Processed 2048/15020 cells
+Batch processing time: 0.601s
+Tokens per second: 109073.56
+torch.Size([64, 1280])
+Processed 2112/15020 cells
+Batch processing time: 0.601s
+Tokens per second: 109103.60
+torch.Size([64, 1280])
+Processed 2176/15020 cells
+Batch processing time: 0.601s
+Tokens per second: 109024.50
+torch.Size([64, 1280])
+Processed 2240/15020 cells
+Batch processing time: 0.598s
+Tokens per second: 109668.70
+torch.Size([64, 1280])
+Processed 2304/15020 cells
+Batch processing time: 0.602s
+Tokens per second: 108856.24
+torch.Size([64, 1280])
+Processed 2368/15020 cells
+Batch processing time: 0.603s
+Tokens per second: 108720.62
+torch.Size([64, 1280])
+Processed 2432/15020 cells
+Batch processing time: 0.614s
+Tokens per second: 106812.21
+torch.Size([64, 1280])
+Processed 2496/15020 cells
+Batch processing time: 0.602s
+Tokens per second: 108866.33
+torch.Size([64, 1280])
+Processed 2560/15020 cells
+Batch processing time: 0.603s
+Tokens per second: 108722.90
+torch.Size([64, 1280])
+Processed 2624/15020 cells
+Batch processing time: 0.610s
+Tokens per second: 107522.99
+torch.Size([64, 1280])
+Processed 2688/15020 cells
+Batch processing time: 0.607s
+Tokens per second: 108048.85
+torch.Size([64, 1280])
+Processed 2752/15020 cells
+Batch processing time: 0.601s
+Tokens per second: 108979.24
+torch.Size([64, 1280])
+Processed 2816/15020 cells
+Batch processing time: 0.608s
+Tokens per second: 107810.44
+torch.Size([64, 1280])
+Processed 2880/15020 cells
+Batch processing time: 0.592s
+Tokens per second: 110619.39
+torch.Size([64, 1280])
+Processed 2944/15020 cells
+Batch processing time: 0.616s
+Tokens per second: 106441.78
+torch.Size([64, 1280])
+Processed 3008/15020 cells
+Batch processing time: 0.604s
+Tokens per second: 108477.39
+torch.Size([64, 1280])
+Processed 3072/15020 cells
+Batch processing time: 0.615s
+Tokens per second: 106533.69
+torch.Size([64, 1280])
+Processed 3136/15020 cells
+Batch processing time: 0.607s
+Tokens per second: 107989.55
+torch.Size([64, 1280])
+Processed 3200/15020 cells
+Batch processing time: 0.613s
+Tokens per second: 106885.02
+torch.Size([64, 1280])
+Processed 3264/15020 cells
+Batch processing time: 0.612s
+Tokens per second: 107151.38
+torch.Size([64, 1280])
+Processed 3328/15020 cells
+Batch processing time: 0.610s
+Tokens per second: 107464.23
+torch.Size([64, 1280])
+Processed 3392/15020 cells
+Batch processing time: 0.609s
+Tokens per second: 107615.52
+torch.Size([64, 1280])
+Processed 3456/15020 cells
+Batch processing time: 0.611s
+Tokens per second: 107195.34
+torch.Size([64, 1280])
+Processed 3520/15020 cells
+Batch processing time: 0.611s
+Tokens per second: 107181.38
+torch.Size([64, 1280])
+Processed 3584/15020 cells
+Batch processing time: 0.616s
+Tokens per second: 106386.66
+torch.Size([64, 1280])
+Processed 3648/15020 cells
+Batch processing time: 0.611s
+Tokens per second: 107244.82
+torch.Size([64, 1280])
+Processed 3712/15020 cells
+Batch processing time: 0.613s
+Tokens per second: 106847.29
+torch.Size([64, 1280])
+Processed 3776/15020 cells
+Batch processing time: 0.616s
+Tokens per second: 106389.46
+torch.Size([64, 1280])
+Processed 3840/15020 cells
+Batch processing time: 0.608s
+Tokens per second: 107861.12
+torch.Size([64, 1280])
+Processed 3904/15020 cells
+Batch processing time: 0.616s
+Tokens per second: 106457.40
+torch.Size([64, 1280])
+Processed 3968/15020 cells
+Batch processing time: 0.621s
+Tokens per second: 105611.42
+torch.Size([64, 1280])
+Processed 4032/15020 cells
+Batch processing time: 0.611s
+Tokens per second: 107256.79
+torch.Size([64, 1280])
+Processed 4096/15020 cells
+Batch processing time: 0.613s
+Tokens per second: 106858.22
+torch.Size([64, 1280])
+Processed 4160/15020 cells
+Batch processing time: 0.616s
+Tokens per second: 106386.16
+torch.Size([64, 1280])
+Processed 4224/15020 cells
+Batch processing time: 0.617s
+Tokens per second: 106281.56
+torch.Size([64, 1280])
+Processed 4288/15020 cells
+Batch processing time: 0.621s
+Tokens per second: 105580.83
+torch.Size([64, 1280])
+Processed 4352/15020 cells
+Batch processing time: 0.617s
+Tokens per second: 106246.97
+torch.Size([64, 1280])
+Processed 4416/15020 cells
+Batch processing time: 0.620s
+Tokens per second: 105768.16
+torch.Size([64, 1280])
+Processed 4480/15020 cells
+Batch processing time: 0.619s
+Tokens per second: 105939.65
+torch.Size([64, 1280])
+Processed 4544/15020 cells
+Batch processing time: 0.620s
+Tokens per second: 105665.42
+torch.Size([64, 1280])
+Processed 4608/15020 cells
+Batch processing time: 0.621s
+Tokens per second: 105498.82
+torch.Size([64, 1280])
+Processed 4672/15020 cells
+Batch processing time: 0.619s
+Tokens per second: 105824.80
+torch.Size([64, 1280])
+Using device: cuda
+Total parameters: 444,834,925
+Trainable parameters: 344,662,125
+torch.Size([64, 1280])
+loss: tensor(0.1410, device='cuda:0')
+Processed 0/15020 cells
+Batch processing time: 0.794s
+Tokens per second: 82501.40
+Final embeddings shape: torch.Size([64, 1280])
+Total processing time: 0.79s
+Average tokens per second: 82501.40
