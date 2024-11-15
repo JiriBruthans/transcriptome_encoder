@@ -14,9 +14,11 @@ warnings.filterwarnings("ignore")
 ################################################################################
 
 # Model configuration
-batch_size = 64
+batch_size = 16
 set_size = 1024
 n_genes = 19565
+n_loss_total = 1024
+n_loss = n_loss_total // 2
 
 TOKEN_DIM = 5120  # ESM-2 embedding dimension
 D_MODEL = 1280    # Transformer embedding dimension (output and inner)
@@ -36,7 +38,7 @@ def full_block(in_features, out_features, p_drop=0.1):
 class TransformerModel(nn.Module):
 
     def __init__(self, token_dim: int, d_model: int, nhead: int, d_hid: int,
-                 nlayers: int, dropout: float = 0.05):
+                 nlayers: int, dropout: float = 0.05, n_loss: int = 512):
         super().__init__()
         self.model_type = 'Transformer'
         self.d_model = d_model
@@ -50,19 +52,22 @@ class TransformerModel(nn.Module):
 
         self.d_model = d_model
         self.dropout = dropout
-        self.decoder = nn.Sequential(
-            full_block(d_model, d_hid, dropout),
-            full_block(d_hid, 2 * d_hid, dropout),
-            nn.Linear(2 * d_hid, n_genes)
-            
-            )
 
 
+        self.token_dim = token_dim
+        self.n_loss = n_loss
         self.pe_embedding = nn.Embedding.from_pretrained(torch.load('embedding_layer.pt'))
-        self.cls_token = nn.Parameter(torch.randn(1, 1, d_model))
+        self.cls_token = nn.Parameter(torch.randn(1, 1, self.d_model))
         self.pe_embedding.requires_grad_(False)
 
-    def forward(self, src: Tensor, counts: Tensor):
+        self.binary_decoder = nn.Sequential(
+            full_block(2 * self.d_model, 2048, self.dropout),
+            full_block(2048, 512, self.dropout),
+            full_block(512, 128, self.dropout),
+            nn.Linear(128, 1)
+        )
+
+    def forward(self, src: Tensor, g_plus: Tensor, g_minus: Tensor):
         """
         Args:
             src: Tensor, shape [set_size, batch_size, token_dim] -- torch.Size([32, 1023, 5120])
@@ -80,20 +85,23 @@ class TransformerModel(nn.Module):
         output = self.transformer_encoder(src)
         embedding = output[0, :, :] # select only the CLS token
         embedding = nn.functional.normalize(embedding, dim=1) # Normalize
-        print(embedding.shape)
+        
         #loss calculation
-        pred_counts = self.decoder(embedding)
-        mse_loss = torch.nn.MSELoss()
+        g_plus = g_plus.to(device)
+        g_minus = g_minus.to(device)
+        g_plus = self.encoder(g_plus) * math.sqrt(self.d_model)
+        g_minus = self.encoder(g_minus) * math.sqrt(self.d_model)
+        g_plus = torch.cat((g_plus, embedding.expand(self.n_loss, batch_size, self.d_model)), dim=2)
+        g_minus = torch.cat((g_minus, embedding.expand(self.n_loss, batch_size, self.d_model)), dim=2)
+        
+        g_plus = self.binary_decoder(g_plus)
+        g_minus = self.binary_decoder(g_minus)  
 
-        # Detach counts to prevent gradient flow
-        counts = counts.detach()
-
-        # Save predicted counts and actual counts
-        torch.save(pred_counts, 'predicted_counts.pt')
-        torch.save(counts, 'actual_counts.pt')
-
-        loss = mse_loss(pred_counts, counts)
-        #loss.backward()
+        loss = None
+        bce_loss = torch.nn.BCEWithLogitsLoss()
+        loss = bce_loss(g_plus, torch.ones(self.n_loss, batch_size, 1).cuda())
+        loss += bce_loss(g_minus, torch.zeros(self.n_loss, batch_size, 1).cuda())
+        loss = loss / 2
 
         return embedding, loss
 ################################################################################
@@ -107,89 +115,73 @@ model = TransformerModel(
     nhead=N_HEAD,
     d_hid=D_HID,
     nlayers=N_LAYERS,
-    dropout=DROPOUT
+    dropout=DROPOUT,
+    n_loss=n_loss
 )
 
-def forward_pass(model, data):
-    data = data.to(device)
-    model.to(device)
-    return model(data)
+model.to(device)
+print(f'Using device: {device}')
+trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
+total_params = sum(p.numel() for p in model.parameters())
+print(f'Total parameters: {total_params:,}')
+print(f'Trainable parameters: {trainable_params:,}')
+
+def forward(batch, current_batch_size):
+    #randomly select n_loss expressed and n_loss not eexpressed genes for loss calculation
+    batch4loss = batch.clone()
+    batch4loss[batch4loss != 0] = 1
+
+    g_plus = torch.multinomial(batch4loss, n_loss, replacement=True)
+    g_minus = torch.multinomial(1 - batch4loss, n_loss, replacement=True)
+    g_plus = model.pe_embedding(g_plus)
+    g_minus = model.pe_embedding(g_minus)
+    g_plus = g_plus.permute(1, 0, 2)
+    g_minus = g_minus.permute(1, 0, 2)
+
+    batch = torch.log1p(batch)
+    batch = batch / torch.sum(batch, dim=1, keepdim=True)
+
+    batch = torch.multinomial(batch, 1023, replacement=True)
+    
+    batch = model.pe_embedding(batch)
+    batch = batch.permute(1, 0, 2)
+    
+    cell_emb, loss = model(batch, g_plus, g_minus)
+    return cell_emb, loss
+
 
 ################################################################################
 ########################## Model training #####################################
 ################################################################################    
+optimizer = torch.optim.AdamW(model.parameters(), lr=3e-4)
 
+adata = sc.read_h5ad('human_tongue.h5ad')
+i = 0
+data = torch.from_numpy(adata.X.toarray()).to(device)
+cell_embs = []
+total_time = 0
+total_tokens = 0
 
+#while i < data.shape[0]:
+for i in range(500):
+    start_time = time.time()
+    if (i + batch_size) < data.shape[0]:
+        batch = data[i:i+batch_size, :]
+        current_batch_size = batch_size
+    else:
+        batch = data[i:, :]
+        current_batch_size = data.shape[0] - i
+    
+    cell_emb, loss = forward(batch, current_batch_size)
+    cell_embs.append(cell_emb)
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
+    print(f"loss: {loss.item()} for step {i}")
 
-################################################################################
-########################## Sample from model ###################################
-################################################################################
-def sample_from_model(model, batch_size=64):
-    model.eval()
-    model.to(device)
-    print(f'Using device: {device}')
-    trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
-    total_params = sum(p.numel() for p in model.parameters())
-    print(f'Total parameters: {total_params:,}')
-    print(f'Trainable parameters: {trainable_params:,}')
+        
+    #i += batch_size
+    #break
 
-    gene_names = torch.load('gene_names.pt')
-
-    adata = sc.read_h5ad('human_tongue.h5ad')
-
-    mask = ~adata.var["feature_name"].str.contains("ENSG")
-    adata = adata[:, mask]
-    mask = adata.var["feature_name"].isin(gene_names)
-    adata = adata[:, mask]
-
-    i = 0
-    data = torch.from_numpy(adata.X.toarray()).to(device)
-    cell_embs = []
-    total_time = 0
-    total_tokens = 0
-    with torch.no_grad():
-        while i < data.shape[0]:
-            start_time = time.time()
-            
-            if (i + batch_size) < data.shape[0]:
-                batch = data[i:i+batch_size, :]
-                current_batch_size = batch_size
-            else:
-                batch = data[i:, :]
-                current_batch_size = data.shape[0] - i
-                
-            batch = torch.log1p(batch)
-            batch = batch / torch.sum(batch, dim=1, keepdim=True)
-            batch_counts = batch.clone()
-
-            batch = torch.multinomial(batch, 1023, replacement=True)
-            
-            batch = model.pe_embedding(batch)
-            batch = batch.permute(1, 0, 2)
-            
-            cell_emb, loss = model(batch, batch_counts)
-            cell_embs.append(cell_emb)
-            
-            print("loss:", loss)
-
-            end_time = time.time()
-            batch_time = end_time - start_time
-            total_time += batch_time
-            tokens_processed = current_batch_size * 1024  # Including CLS token
-            total_tokens += tokens_processed
-            
-            print(f'Processed {i}/{data.shape[0]} cells')
-            print(f'Batch processing time: {batch_time:.3f}s')
-            print(f'Tokens per second: {tokens_processed/batch_time:.2f}')
-            
-            i += batch_size
-            break
-
-        cell_embs = torch.cat(cell_embs, dim=0)
-        print(f'Final embeddings shape: {cell_embs.shape}')
-        print(f'Total processing time: {total_time:.2f}s')
-        print(f'Average tokens per second: {total_tokens/total_time:.2f}')
-        torch.save(cell_embs.cpu(), 'cell_emb.pt')
-        return cell_embs
-
-sample_from_model(model)
+cell_embs = torch.cat(cell_embs, dim=0)
+torch.save(cell_embs.cpu(), 'cell_emb.pt')

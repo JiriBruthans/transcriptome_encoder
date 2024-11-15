@@ -2217,3 +2217,1325 @@ Tokens per second: 82501.40
 Final embeddings shape: torch.Size([64, 1280])
 Total processing time: 0.79s
 Average tokens per second: 82501.40
+Using device: cuda
+Total parameters: 185,441,280
+Trainable parameters: 85,268,480
+torch.Size([64, 1280])
+loss: 0
+Processed 0/15020 cells
+Batch processing time: 3.580s
+Tokens per second: 18303.64
+Final embeddings shape: torch.Size([64, 1280])
+Total processing time: 3.58s
+Average tokens per second: 18303.64
+Using device: cuda
+Total parameters: 185,441,280
+Trainable parameters: 85,268,480
+torch.Size([512, 64, 5120])
+torch.Size([512, 64, 5120])
+torch.Size([64, 1280])
+loss: 0
+Processed 0/15020 cells
+Batch processing time: 3.563s
+Tokens per second: 18392.98
+Final embeddings shape: torch.Size([64, 1280])
+Total processing time: 3.56s
+Average tokens per second: 18392.98
+Using device: cuda
+Total parameters: 185,441,280
+Trainable parameters: 85,268,480
+torch.Size([512, 64, 5120])
+torch.Size([512, 64, 5120])
+torch.Size([64, 1280])
+Traceback (most recent call last):
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 194, in <module>
+    sample_from_model(model)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 169, in sample_from_model
+    cell_emb, loss = model(batch, g_plus, g_minus)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 80, in forward
+    g_plus = torch.cat((g_plus, embedding), dim=2)
+RuntimeError: Tensors must have same number of dimensions: got 3 and 2
+Using device: cuda
+Total parameters: 185,441,280
+Trainable parameters: 85,268,480
+torch.Size([512, 64, 5120])
+torch.Size([512, 64, 5120])
+torch.Size([64, 1280])
+Traceback (most recent call last):
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 194, in <module>
+    sample_from_model(model)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 169, in sample_from_model
+    cell_emb, loss = model(batch, g_plus, g_minus)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 80, in forward
+    g_plus = torch.cat((g_plus, embedding.unsqeeeze(0)), dim=2)
+AttributeError: 'Tensor' object has no attribute 'unsqeeeze'. Did you mean: 'unsqueeze'?
+Using device: cuda
+Total parameters: 185,441,280
+Trainable parameters: 85,268,480
+torch.Size([512, 64, 5120])
+torch.Size([512, 64, 5120])
+torch.Size([64, 1280])
+Traceback (most recent call last):
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 194, in <module>
+    sample_from_model(model)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 169, in sample_from_model
+    cell_emb, loss = model(batch, g_plus, g_minus)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 80, in forward
+    g_plus = torch.cat((g_plus, embedding.unsqeeze(0)), dim=2)
+AttributeError: 'Tensor' object has no attribute 'unsqeeze'. Did you mean: 'unsqueeze'?
+Using device: cuda
+Total parameters: 185,441,280
+Trainable parameters: 85,268,480
+torch.Size([512, 64, 5120])
+torch.Size([512, 64, 5120])
+torch.Size([64, 1280])
+Traceback (most recent call last):
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 194, in <module>
+    sample_from_model(model)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 169, in sample_from_model
+    cell_emb, loss = model(batch, g_plus, g_minus)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 80, in forward
+    g_plus = torch.cat((g_plus, embedding.unsqueeze(0)), dim=2)
+RuntimeError: Sizes of tensors must match except in dimension 2. Expected size 512 but got size 1 for tensor number 1 in the list.
+Using device: cuda
+Total parameters: 185,441,280
+Trainable parameters: 85,268,480
+torch.Size([512, 64, 5120])
+torch.Size([512, 64, 5120])
+torch.Size([64, 1280])
+Traceback (most recent call last):
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 196, in <module>
+    sample_from_model(model)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 171, in sample_from_model
+    cell_emb, loss = model(batch, g_plus, g_minus)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 82, in forward
+    g_plus = torch.cat((g_plus, embedding.expand(n_loss, batch_size, token_dim)), dim=2)
+NameError: name 'token_dim' is not defined
+Using device: cuda
+Total parameters: 185,441,280
+Trainable parameters: 85,268,480
+torch.Size([512, 64, 5120])
+torch.Size([512, 64, 5120])
+torch.Size([64, 1280])
+Traceback (most recent call last):
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 197, in <module>
+    sample_from_model(model)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 172, in sample_from_model
+    cell_emb, loss = model(batch, g_plus, g_minus)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 83, in forward
+    g_plus = torch.cat((g_plus, embedding.expand(self.n_loss, batch_size, self.token_dim)), dim=2)
+RuntimeError: The expanded size of the tensor (5120) must match the existing size (1280) at non-singleton dimension 2.  Target sizes: [512, 64, 5120].  Tensor sizes: [64, 1280]
+Using device: cuda
+Total parameters: 185,441,280
+Trainable parameters: 85,268,480
+torch.Size([512, 64, 5120])
+torch.Size([512, 64, 5120])
+torch.Size([64, 1280])
+g_plus shape: torch.Size([512, 64, 6400])
+loss: 0
+Processed 0/15020 cells
+Batch processing time: 3.517s
+Tokens per second: 18631.50
+Final embeddings shape: torch.Size([64, 1280])
+Total processing time: 3.52s
+Average tokens per second: 18631.50
+Using device: cuda
+Total parameters: 185,441,280
+Trainable parameters: 85,268,480
+torch.Size([512, 64, 5120])
+torch.Size([512, 64, 5120])
+torch.Size([64, 1280])
+g_plus shape: torch.Size([512, 64, 6400])
+loss: 0
+Processed 0/15020 cells
+Batch processing time: 3.512s
+Tokens per second: 18658.39
+Final embeddings shape: torch.Size([64, 1280])
+Total processing time: 3.51s
+Average tokens per second: 18658.39
+Using device: cuda
+Total parameters: 185,441,280
+Trainable parameters: 85,268,480
+torch.Size([512, 64, 5120])
+torch.Size([512, 64, 5120])
+torch.Size([64, 1280])
+g_plus shape: torch.Size([512, 64, 2560])
+loss: 0
+Processed 0/15020 cells
+Batch processing time: 3.489s
+Tokens per second: 18783.65
+Final embeddings shape: torch.Size([64, 1280])
+Total processing time: 3.49s
+Average tokens per second: 18783.65
+Using device: cuda
+Total parameters: 191,806,465
+Trainable parameters: 91,633,665
+torch.Size([512, 64, 5120])
+torch.Size([512, 64, 5120])
+torch.Size([64, 1280])
+g_plus shape: torch.Size([512, 64, 1])
+Traceback (most recent call last):
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 214, in <module>
+    sample_from_model(model)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 189, in sample_from_model
+    cell_emb, loss = model(batch, g_plus, g_minus)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 102, in forward
+    loss = cs_loss(g_plus, torch.ones(self.n_loss, dtype=torch.long)) + cs_loss(g_minus, torch.zeros(self.n_loss, dtype=torch.long))
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/loss.py", line 1293, in forward
+    return F.cross_entropy(
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/functional.py", line 3479, in cross_entropy
+    return torch._C._nn.cross_entropy_loss(
+RuntimeError: Expected target size [512, 1], got [512]
+Using device: cuda
+Total parameters: 191,806,465
+Trainable parameters: 91,633,665
+torch.Size([512, 64, 5120])
+torch.Size([512, 64, 5120])
+torch.Size([64, 1280])
+g_plus shape: torch.Size([512, 64, 1])
+Traceback (most recent call last):
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 212, in <module>
+    sample_from_model(model)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 187, in sample_from_model
+    cell_emb, loss = model(batch, g_plus, g_minus)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 102, in forward
+    loss = cs_loss(g_plus, torch.ones(self.n_loss, batch_size, 1, dtype=torch.long)) + cs_loss(g_minus, torch.zeros(self.n_loss, batch_size, 1, dtype=torch.long))
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/loss.py", line 1293, in forward
+    return F.cross_entropy(
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/functional.py", line 3479, in cross_entropy
+    return torch._C._nn.cross_entropy_loss(
+RuntimeError: Expected floating point type for target with class probabilities, got Long
+Using device: cuda
+Total parameters: 191,806,465
+Trainable parameters: 91,633,665
+torch.Size([512, 64, 5120])
+torch.Size([512, 64, 5120])
+torch.Size([64, 1280])
+g_plus shape: torch.Size([512, 64, 1])
+Traceback (most recent call last):
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 212, in <module>
+    sample_from_model(model)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 187, in sample_from_model
+    cell_emb, loss = model(batch, g_plus, g_minus)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 102, in forward
+    loss = cs_loss(g_plus, torch.ones(self.n_loss, batch_size, 1, dtype=torch.float)) + cs_loss(g_minus, torch.zeros(self.n_loss, batch_size, 1, dtype=torch.float))
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/loss.py", line 1293, in forward
+    return F.cross_entropy(
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/functional.py", line 3479, in cross_entropy
+    return torch._C._nn.cross_entropy_loss(
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu!
+Using device: cuda
+Total parameters: 191,806,465
+Trainable parameters: 91,633,665
+torch.Size([512, 64, 5120])
+torch.Size([512, 64, 5120])
+torch.Size([64, 1280])
+g_plus shape: torch.Size([512, 64, 1])
+Traceback (most recent call last):
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 215, in <module>
+    sample_from_model(model)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 190, in sample_from_model
+    cell_emb, loss = model(batch, g_plus, g_minus)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 104, in forward
+    loss = cs_loss(g_plus, torch.ones(self.n_loss, batch_size, 1, dtype=torch.float)) + cs_loss(g_minus, torch.zeros(self.n_loss, batch_size, 1, dtype=torch.float))
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/loss.py", line 1293, in forward
+    return F.cross_entropy(
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/functional.py", line 3479, in cross_entropy
+    return torch._C._nn.cross_entropy_loss(
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu!
+Using device: cuda
+Total parameters: 191,806,465
+Trainable parameters: 91,633,665
+torch.Size([512, 64, 5120])
+torch.Size([512, 64, 5120])
+torch.Size([64, 1280])
+g_plus shape: torch.Size([512, 64, 1])
+loss: tensor(268.7637, device='cuda:0')
+Processed 0/15020 cells
+Batch processing time: 3.981s
+Tokens per second: 16461.25
+Final embeddings shape: torch.Size([64, 1280])
+Total processing time: 3.98s
+Average tokens per second: 16461.25
+Using device: cuda
+Total parameters: 191,806,465
+Trainable parameters: 91,633,665
+torch.Size([512, 64, 5120])
+torch.Size([512, 64, 5120])
+torch.Size([64, 1280])
+g_plus shape: torch.Size([512, 64, 1])
+loss: tensor(266.3016, device='cuda:0')
+Processed 0/15020 cells
+Batch processing time: 3.998s
+Tokens per second: 16393.93
+Final embeddings shape: torch.Size([64, 1280])
+Total processing time: 4.00s
+Average tokens per second: 16393.93
+Using device: cuda
+Total parameters: 191,806,465
+Trainable parameters: 91,633,665
+torch.Size([512, 64, 5120])
+torch.Size([512, 64, 5120])
+torch.Size([64, 1280])
+g_plus shape: torch.Size([512, 64, 1])
+loss: tensor(266.2849, device='cuda:0')
+Processed 0/15020 cells
+Batch processing time: 3.989s
+Tokens per second: 16430.30
+Final embeddings shape: torch.Size([64, 1280])
+Total processing time: 3.99s
+Average tokens per second: 16430.30
+Using device: cuda
+Total parameters: 191,806,465
+Trainable parameters: 91,633,665
+torch.Size([512, 64, 5120])
+torch.Size([512, 64, 5120])
+torch.Size([64, 1280])
+g_plus shape: torch.Size([512, 64, 1])
+loss: tensor(1.4319, device='cuda:0')
+Processed 0/15020 cells
+Batch processing time: 3.946s
+Tokens per second: 16606.39
+Final embeddings shape: torch.Size([64, 1280])
+Total processing time: 3.95s
+Average tokens per second: 16606.39
+Using device: cuda
+Total parameters: 191,806,465
+Trainable parameters: 91,633,665
+torch.Size([512, 64, 5120])
+torch.Size([512, 64, 5120])
+torch.Size([64, 1280])
+g_plus shape: torch.Size([512, 64, 1])
+loss: tensor(1.4109, device='cuda:0')
+Processed 0/15020 cells
+Batch processing time: 3.993s
+Tokens per second: 16412.27
+Final embeddings shape: torch.Size([64, 1280])
+Total processing time: 3.99s
+Average tokens per second: 16412.27
+Using device: cuda
+Total parameters: 191,806,465
+Trainable parameters: 91,633,665
+torch.Size([512, 64, 5120])
+torch.Size([512, 64, 5120])
+torch.Size([64, 1280])
+g_plus shape: torch.Size([512, 64, 1])
+loss: tensor(1.3959, device='cuda:0')
+Processed 0/15020 cells
+Batch processing time: 4.056s
+Tokens per second: 16158.77
+Final embeddings shape: torch.Size([64, 1280])
+Total processing time: 4.06s
+Average tokens per second: 16158.77
+Using device: cuda
+Total parameters: 191,806,465
+Trainable parameters: 91,633,665
+torch.Size([512, 64, 5120])
+torch.Size([512, 64, 5120])
+Traceback (most recent call last):
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 176, in <module>
+    cell_emb, loss = forward(batch, current_batch_size)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 164, in forward
+    cell_emb, loss = model(batch, g_plus, g_minus)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 85, in forward
+    output = self.transformer_encoder(src)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/transformer.py", line 511, in forward
+    output = mod(
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/transformer.py", line 904, in forward
+    + self._sa_block(x, src_mask, src_key_padding_mask, is_causal=is_causal)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/transformer.py", line 918, in _sa_block
+    x = self.self_attn(
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/activation.py", line 1368, in forward
+    attn_output, attn_output_weights = F.multi_head_attention_forward(
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/functional.py", line 6097, in multi_head_attention_forward
+    q, k, v = _in_projection_packed(query, key, value, in_proj_weight, in_proj_bias)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/functional.py", line 5508, in _in_projection_packed
+    .contiguous()
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 960.00 MiB. GPU 0 has a total capacity of 14.57 GiB of which 724.75 MiB is free. Including non-PyTorch memory, this process has 13.86 GiB memory in use. Of the allocated memory 13.24 GiB is allocated by PyTorch, and 504.41 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Using device: cuda
+Total parameters: 191,806,465
+Trainable parameters: 91,633,665
+torch.Size([512, 64, 5120])
+torch.Size([512, 64, 5120])
+torch.Size([64, 1280])
+g_plus shape: torch.Size([512, 64, 1])
+loss: tensor(0.7008, device='cuda:0')
+Processed 0/15020 cells
+Batch processing time: 4.051s
+Tokens per second: 16178.82
+Final embeddings shape: torch.Size([64, 1280])
+Total processing time: 4.05s
+Average tokens per second: 16178.82
+Using device: cuda
+Total parameters: 191,806,465
+Trainable parameters: 91,633,665
+torch.Size([512, 64, 5120])
+torch.Size([512, 64, 5120])
+torch.Size([64, 1280])
+g_plus shape: torch.Size([512, 64, 1])
+loss: tensor(0.7283, device='cuda:0')
+Processed 0/15020 cells
+Batch processing time: 4.052s
+Tokens per second: 16174.88
+Final embeddings shape: torch.Size([64, 1280])
+Total processing time: 4.05s
+Average tokens per second: 16174.88
+Using device: cuda
+Total parameters: 191,806,465
+Trainable parameters: 91,633,665
+torch.Size([512, 64, 5120])
+torch.Size([512, 64, 5120])
+Traceback (most recent call last):
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 180, in <module>
+    cell_emb, loss = forward(batch, current_batch_size)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 154, in forward
+    cell_emb, loss = model(batch, g_plus, g_minus)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 85, in forward
+    output = self.transformer_encoder(src)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/transformer.py", line 511, in forward
+    output = mod(
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/transformer.py", line 904, in forward
+    + self._sa_block(x, src_mask, src_key_padding_mask, is_causal=is_causal)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/transformer.py", line 918, in _sa_block
+    x = self.self_attn(
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/activation.py", line 1368, in forward
+    attn_output, attn_output_weights = F.multi_head_attention_forward(
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/functional.py", line 6097, in multi_head_attention_forward
+    q, k, v = _in_projection_packed(query, key, value, in_proj_weight, in_proj_bias)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/functional.py", line 5508, in _in_projection_packed
+    .contiguous()
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 960.00 MiB. GPU 0 has a total capacity of 14.57 GiB of which 724.75 MiB is free. Including non-PyTorch memory, this process has 13.86 GiB memory in use. Of the allocated memory 13.24 GiB is allocated by PyTorch, and 504.41 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Using device: cuda
+Total parameters: 191,806,465
+Trainable parameters: 91,633,665
+torch.Size([512, 32, 5120])
+torch.Size([512, 32, 5120])
+Traceback (most recent call last):
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 180, in <module>
+    cell_emb, loss = forward(batch, current_batch_size)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 154, in forward
+    cell_emb, loss = model(batch, g_plus, g_minus)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/transcriptome_encoder/train_model.py", line 85, in forward
+    output = self.transformer_encoder(src)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/transformer.py", line 511, in forward
+    output = mod(
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/transformer.py", line 906, in forward
+    x = self.norm2(x + self._ff_block(x))
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/transformer.py", line 931, in _ff_block
+    x = self.linear2(self.dropout(self.activation(self.linear1(x))))
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/scratch.ssd/jiribruthans/job_6492426.pbs-m1.metacentrum.cz/miniforge3/envs/txn-enc/lib/python3.10/site-packages/torch/nn/modules/linear.py", line 125, in forward
+    return F.linear(input, self.weight, self.bias)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 640.00 MiB. GPU 0 has a total capacity of 14.57 GiB of which 404.75 MiB is free. Including non-PyTorch memory, this process has 14.17 GiB memory in use. Of the allocated memory 13.99 GiB is allocated by PyTorch, and 58.80 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Using device: cuda
+Total parameters: 191,806,465
+Trainable parameters: 91,633,665
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.7547883987426758 for step 0
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 1.1863787174224854 for step 1
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6928627490997314 for step 2
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.7321984767913818 for step 3
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6932337880134583 for step 4
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.694608211517334 for step 5
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.7024076581001282 for step 6
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6965687870979309 for step 7
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6917989253997803 for step 8
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6899523138999939 for step 9
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6908093094825745 for step 10
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6929230690002441 for step 11
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6929274797439575 for step 12
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6915003657341003 for step 13
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6894291639328003 for step 14
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6885641813278198 for step 15
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6883547306060791 for step 16
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6880240440368652 for step 17
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6887542009353638 for step 18
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6883552074432373 for step 19
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6872034668922424 for step 20
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6853305101394653 for step 21
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.683367133140564 for step 22
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6818066835403442 for step 23
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.680266261100769 for step 24
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6801720857620239 for step 25
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6771920919418335 for step 26
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6740333437919617 for step 27
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6689505577087402 for step 28
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6644858121871948 for step 29
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.659544825553894 for step 30
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6529284715652466 for step 31
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6430070400238037 for step 32
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6363284587860107 for step 33
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.630991518497467 for step 34
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6324177384376526 for step 35
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6322884559631348 for step 36
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6335788369178772 for step 37
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6210218667984009 for step 38
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6229307055473328 for step 39
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6209483742713928 for step 40
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6177492141723633 for step 41
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.614527702331543 for step 42
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6093921661376953 for step 43
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6093780398368835 for step 44
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6074850559234619 for step 45
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6002998352050781 for step 46
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.6000175476074219 for step 47
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.5978828072547913 for step 48
+torch.Size([512, 16, 5120])
+torch.Size([512, 16, 5120])
+torch.Size([16, 1280])
+g_plus shape: torch.Size([512, 16, 1])
+loss: 0.5886073708534241 for step 49
+Using device: cuda
+Total parameters: 191,806,465
+Trainable parameters: 91,633,665
+loss: 0.7123446464538574 for step 0
+loss: 1.1905572414398193 for step 1
+loss: 0.7018802762031555 for step 2
+loss: 0.7198768854141235 for step 3
+loss: 0.7030426263809204 for step 4
+loss: 0.6901713609695435 for step 5
+loss: 0.6923319101333618 for step 6
+loss: 0.6953984498977661 for step 7
+loss: 0.6926589012145996 for step 8
+loss: 0.6887415647506714 for step 9
+loss: 0.6870466470718384 for step 10
+loss: 0.6859828233718872 for step 11
+loss: 0.6866031885147095 for step 12
+loss: 0.6871229410171509 for step 13
+loss: 0.6852671504020691 for step 14
+loss: 0.6821700930595398 for step 15
+loss: 0.6803898811340332 for step 16
+loss: 0.6786451935768127 for step 17
+loss: 0.6752707958221436 for step 18
+loss: 0.6721924543380737 for step 19
+loss: 0.6658793687820435 for step 20
+loss: 0.6589656472206116 for step 21
+loss: 0.6551899313926697 for step 22
+loss: 0.6456183195114136 for step 23
+loss: 0.6443223357200623 for step 24
+loss: 0.6380395293235779 for step 25
+loss: 0.6349661350250244 for step 26
+loss: 0.6247704029083252 for step 27
+loss: 0.6212505102157593 for step 28
+loss: 0.6286192536354065 for step 29
+loss: 0.6151365041732788 for step 30
+loss: 0.622306764125824 for step 31
+loss: 0.6152603626251221 for step 32
+loss: 0.6120929718017578 for step 33
+loss: 0.6119218468666077 for step 34
+loss: 0.6163473129272461 for step 35
+loss: 0.6033236980438232 for step 36
+loss: 0.6028200387954712 for step 37
+loss: 0.6012431383132935 for step 38
+loss: 0.5980503559112549 for step 39
+loss: 0.5882958173751831 for step 40
+loss: 0.5922353863716125 for step 41
+loss: 0.5867172479629517 for step 42
+loss: 0.58958899974823 for step 43
+loss: 0.5939871072769165 for step 44
+loss: 0.5844380259513855 for step 45
+loss: 0.5849952697753906 for step 46
+loss: 0.5914216637611389 for step 47
+loss: 0.5796923637390137 for step 48
+loss: 0.5865311026573181 for step 49
+Using device: cuda
+Total parameters: 191,806,465
+Trainable parameters: 91,633,665
+loss: 0.7042100429534912 for step 0
+loss: 1.1451719999313354 for step 1
+loss: 0.682401180267334 for step 2
+loss: 0.6859777569770813 for step 3
+loss: 0.6755377054214478 for step 4
+loss: 0.6694540977478027 for step 5
+loss: 0.6595202088356018 for step 6
+loss: 0.6517429351806641 for step 7
+loss: 0.6461935043334961 for step 8
+loss: 0.6332727670669556 for step 9
+loss: 0.630662202835083 for step 10
+loss: 0.6456760168075562 for step 11
+loss: 0.6389737129211426 for step 12
+loss: 0.6249110698699951 for step 13
+loss: 0.630912184715271 for step 14
+loss: 0.6195226907730103 for step 15
+loss: 0.6224956512451172 for step 16
+loss: 0.618640661239624 for step 17
+loss: 0.6181625127792358 for step 18
+loss: 0.614814817905426 for step 19
+loss: 0.61924809217453 for step 20
+loss: 0.6119582653045654 for step 21
+loss: 0.6060453057289124 for step 22
+loss: 0.6054017543792725 for step 23
+loss: 0.6011333465576172 for step 24
+loss: 0.6022330522537231 for step 25
+loss: 0.5973576307296753 for step 26
+loss: 0.603069007396698 for step 27
+loss: 0.5913187861442566 for step 28
+loss: 0.5938723683357239 for step 29
+loss: 0.5921255350112915 for step 30
+loss: 0.584578275680542 for step 31
+loss: 0.5905260443687439 for step 32
+loss: 0.586860179901123 for step 33
+loss: 0.5846008062362671 for step 34
+loss: 0.5813612341880798 for step 35
+loss: 0.5811218023300171 for step 36
+loss: 0.5848164558410645 for step 37
+loss: 0.5734587907791138 for step 38
+loss: 0.5813260674476624 for step 39
+loss: 0.5699514746665955 for step 40
+loss: 0.5739343166351318 for step 41
+loss: 0.575138509273529 for step 42
+loss: 0.5716385841369629 for step 43
+loss: 0.567802369594574 for step 44
+loss: 0.5665872097015381 for step 45
+loss: 0.570772647857666 for step 46
+loss: 0.5689382553100586 for step 47
+loss: 0.5721887350082397 for step 48
+loss: 0.5703731179237366 for step 49
+loss: 0.5668401122093201 for step 50
+loss: 0.5682610869407654 for step 51
+loss: 0.5745866298675537 for step 52
+loss: 0.563496470451355 for step 53
+loss: 0.5647594928741455 for step 54
+loss: 0.5641130208969116 for step 55
+loss: 0.5633211731910706 for step 56
+loss: 0.5623368620872498 for step 57
+loss: 0.5584060549736023 for step 58
+loss: 0.5675768852233887 for step 59
+loss: 0.5849794745445251 for step 60
+loss: 0.5706251263618469 for step 61
+loss: 0.5642821788787842 for step 62
+loss: 0.5613577961921692 for step 63
+loss: 0.568138062953949 for step 64
+loss: 0.5623083114624023 for step 65
+loss: 0.5629110336303711 for step 66
+loss: 0.5606423020362854 for step 67
+loss: 0.5588111877441406 for step 68
+loss: 0.5612401962280273 for step 69
+loss: 0.5648598074913025 for step 70
+loss: 0.5561397075653076 for step 71
+loss: 0.5475957989692688 for step 72
+loss: 0.5600855946540833 for step 73
+loss: 0.5576695203781128 for step 74
+loss: 0.5598343014717102 for step 75
+loss: 0.5560494661331177 for step 76
+loss: 0.5524131059646606 for step 77
+loss: 0.5589469075202942 for step 78
+loss: 0.5497314929962158 for step 79
+loss: 0.5485666990280151 for step 80
+loss: 0.5531408190727234 for step 81
+loss: 0.556002140045166 for step 82
+loss: 0.5464204549789429 for step 83
+loss: 0.5449188947677612 for step 84
+loss: 0.5510187149047852 for step 85
+loss: 0.5535513162612915 for step 86
+loss: 0.5568428039550781 for step 87
+loss: 0.5488952994346619 for step 88
+loss: 0.5478978157043457 for step 89
+loss: 0.554419755935669 for step 90
+loss: 0.5405957102775574 for step 91
+loss: 0.5422812104225159 for step 92
+loss: 0.5355715751647949 for step 93
+loss: 0.5449402332305908 for step 94
+loss: 0.5518196821212769 for step 95
+loss: 0.5423213243484497 for step 96
+loss: 0.544878363609314 for step 97
+loss: 0.5453534722328186 for step 98
+loss: 0.5490509867668152 for step 99
+loss: 0.566056489944458 for step 100
+loss: 0.5465455055236816 for step 101
+loss: 0.5573237538337708 for step 102
+loss: 0.5589402914047241 for step 103
+loss: 0.5412806272506714 for step 104
+loss: 0.5542452335357666 for step 105
+loss: 0.5611073970794678 for step 106
+loss: 0.5371335744857788 for step 107
+loss: 0.554625928401947 for step 108
+loss: 0.5486723184585571 for step 109
+loss: 0.5465528964996338 for step 110
+loss: 0.5512966513633728 for step 111
+loss: 0.5368251800537109 for step 112
+loss: 0.5516343116760254 for step 113
+loss: 0.541613757610321 for step 114
+loss: 0.5360994935035706 for step 115
+loss: 0.5318331718444824 for step 116
+loss: 0.5296325087547302 for step 117
+loss: 0.5452581644058228 for step 118
+loss: 0.5415639877319336 for step 119
+loss: 0.5387433171272278 for step 120
+loss: 0.5394463539123535 for step 121
+loss: 0.5328477621078491 for step 122
+loss: 0.5348023176193237 for step 123
+loss: 0.5354819893836975 for step 124
+loss: 0.5514199137687683 for step 125
+loss: 0.540690004825592 for step 126
+loss: 0.5396431088447571 for step 127
+loss: 0.5484733581542969 for step 128
+loss: 0.5344491600990295 for step 129
+loss: 0.5457665920257568 for step 130
+loss: 0.5733565092086792 for step 131
+loss: 0.5532299876213074 for step 132
+loss: 0.5625113844871521 for step 133
+loss: 0.5442297458648682 for step 134
+loss: 0.5487937331199646 for step 135
+loss: 0.5434029698371887 for step 136
+loss: 0.5577894449234009 for step 137
+loss: 0.5373995304107666 for step 138
+loss: 0.5462073683738708 for step 139
+loss: 0.5374190807342529 for step 140
+loss: 0.5455981492996216 for step 141
+loss: 0.534623384475708 for step 142
+loss: 0.5558024644851685 for step 143
+loss: 0.533906102180481 for step 144
+loss: 0.5522051453590393 for step 145
+loss: 0.5443953275680542 for step 146
+loss: 0.5487259030342102 for step 147
+loss: 0.5386995673179626 for step 148
+loss: 0.5439783930778503 for step 149
+loss: 0.5344499945640564 for step 150
+loss: 0.5441279411315918 for step 151
+loss: 0.5352218151092529 for step 152
+loss: 0.5372607707977295 for step 153
+loss: 0.5285330414772034 for step 154
+loss: 0.5361902713775635 for step 155
+loss: 0.5248410701751709 for step 156
+loss: 0.527499794960022 for step 157
+loss: 0.5299839973449707 for step 158
+loss: 0.5332214832305908 for step 159
+loss: 0.5237327814102173 for step 160
+loss: 0.5239822268486023 for step 161
+loss: 0.5275466442108154 for step 162
+loss: 0.5229964256286621 for step 163
+loss: 0.5143964290618896 for step 164
+loss: 0.5192744135856628 for step 165
+loss: 0.5266852974891663 for step 166
+loss: 0.5248685479164124 for step 167
+loss: 0.5313663482666016 for step 168
+loss: 0.5249965190887451 for step 169
+loss: 0.5232497453689575 for step 170
+loss: 0.5309441685676575 for step 171
+loss: 0.5234948396682739 for step 172
+loss: 0.5271341800689697 for step 173
+loss: 0.5233269929885864 for step 174
+loss: 0.5204207897186279 for step 175
+loss: 0.5262451171875 for step 176
+loss: 0.522130012512207 for step 177
+loss: 0.5242023468017578 for step 178
+loss: 0.5223338603973389 for step 179
+loss: 0.5181072950363159 for step 180
+loss: 0.5225073099136353 for step 181
+loss: 0.5176283717155457 for step 182
+loss: 0.5186625719070435 for step 183
+loss: 0.5224714279174805 for step 184
+loss: 0.5202322006225586 for step 185
+loss: 0.5318767428398132 for step 186
+loss: 0.5211659669876099 for step 187
+loss: 0.5215669870376587 for step 188
+loss: 0.5310593843460083 for step 189
+loss: 0.5216405987739563 for step 190
+loss: 0.5194708108901978 for step 191
+loss: 0.5300275683403015 for step 192
+loss: 0.5326415300369263 for step 193
+loss: 0.5368375778198242 for step 194
+loss: 0.5325609445571899 for step 195
+loss: 0.5262293219566345 for step 196
+loss: 0.5252496004104614 for step 197
+loss: 0.5184808373451233 for step 198
+loss: 0.5322484970092773 for step 199
+loss: 0.5220233201980591 for step 200
+loss: 0.5272491574287415 for step 201
+loss: 0.5326246023178101 for step 202
+loss: 0.5301371216773987 for step 203
+loss: 0.5208584070205688 for step 204
+loss: 0.5240920186042786 for step 205
+loss: 0.5173940658569336 for step 206
+loss: 0.5158801078796387 for step 207
+loss: 0.520808219909668 for step 208
+loss: 0.51384437084198 for step 209
+loss: 0.5211215019226074 for step 210
+loss: 0.5205086469650269 for step 211
+loss: 0.5083804130554199 for step 212
+loss: 0.5088986754417419 for step 213
+loss: 0.5272951126098633 for step 214
+loss: 0.5263248682022095 for step 215
+loss: 0.531242311000824 for step 216
+loss: 0.5203630924224854 for step 217
+loss: 0.5177497267723083 for step 218
+loss: 0.5345338582992554 for step 219
+loss: 0.5175676941871643 for step 220
+loss: 0.5309508442878723 for step 221
+loss: 0.5210223197937012 for step 222
+loss: 0.5305727124214172 for step 223
+loss: 0.5553454160690308 for step 224
+loss: 0.5720005035400391 for step 225
+loss: 0.6005815267562866 for step 226
+loss: 0.5917218923568726 for step 227
+loss: 0.5917606949806213 for step 228
+loss: 0.5886317491531372 for step 229
+loss: 0.5718719959259033 for step 230
+loss: 0.5451403856277466 for step 231
+loss: 0.5711353421211243 for step 232
+loss: 0.5492082834243774 for step 233
+loss: 0.5624719262123108 for step 234
+loss: 0.5416107177734375 for step 235
+loss: 0.5529391765594482 for step 236
+loss: 0.5282720327377319 for step 237
+loss: 0.5509533286094666 for step 238
+loss: 0.5340413451194763 for step 239
+loss: 0.5389787554740906 for step 240
+loss: 0.5486761331558228 for step 241
+loss: 0.5326952338218689 for step 242
+loss: 0.5409957766532898 for step 243
+loss: 0.5318946838378906 for step 244
+loss: 0.5350033044815063 for step 245
+loss: 0.5308719873428345 for step 246
+loss: 0.5319620966911316 for step 247
+loss: 0.5255798101425171 for step 248
+loss: 0.5200098156929016 for step 249
+loss: 0.5228685140609741 for step 250
+loss: 0.5205349922180176 for step 251
+loss: 0.518439531326294 for step 252
+loss: 0.5175950527191162 for step 253
+loss: 0.5125501155853271 for step 254
+loss: 0.5183375477790833 for step 255
+loss: 0.5133687257766724 for step 256
+loss: 0.5191667079925537 for step 257
+loss: 0.5249015688896179 for step 258
+loss: 0.5190896987915039 for step 259
+loss: 0.5175617933273315 for step 260
+loss: 0.5170325040817261 for step 261
+loss: 0.5127304792404175 for step 262
+loss: 0.5191708207130432 for step 263
+loss: 0.5119017362594604 for step 264
+loss: 0.510464072227478 for step 265
+loss: 0.516208827495575 for step 266
+loss: 0.5126679539680481 for step 267
+loss: 0.509621262550354 for step 268
+loss: 0.5200343132019043 for step 269
+loss: 0.5150326490402222 for step 270
+loss: 0.5129612684249878 for step 271
+loss: 0.5048140287399292 for step 272
+loss: 0.5146769285202026 for step 273
+loss: 0.5126608610153198 for step 274
+loss: 0.5143299102783203 for step 275
+loss: 0.510261595249176 for step 276
+loss: 0.5103343725204468 for step 277
+loss: 0.5102035403251648 for step 278
+loss: 0.509115993976593 for step 279
+loss: 0.5020078420639038 for step 280
+loss: 0.5085816979408264 for step 281
+loss: 0.5084675550460815 for step 282
+loss: 0.49983471632003784 for step 283
+loss: 0.5052586793899536 for step 284
+loss: 0.5082848072052002 for step 285
+loss: 0.5084612369537354 for step 286
+loss: 0.5052878856658936 for step 287
+loss: 0.5090678930282593 for step 288
+loss: 0.5050780177116394 for step 289
+loss: 0.502943754196167 for step 290
+loss: 0.5052984952926636 for step 291
+loss: 0.5056216716766357 for step 292
+loss: 0.5177556276321411 for step 293
+loss: 0.5249353647232056 for step 294
+loss: 0.5201857089996338 for step 295
+loss: 0.5149844884872437 for step 296
+loss: 0.5199331045150757 for step 297
+loss: 0.514312744140625 for step 298
+loss: 0.5063307881355286 for step 299
+loss: 0.5179681777954102 for step 300
+loss: 0.5058503746986389 for step 301
+loss: 0.5108630061149597 for step 302
+loss: 0.5296186804771423 for step 303
+loss: 0.5216220617294312 for step 304
+loss: 0.5103130340576172 for step 305
+loss: 0.5320147275924683 for step 306
+loss: 0.5165586471557617 for step 307
+loss: 0.512037992477417 for step 308
+loss: 0.53425532579422 for step 309
+loss: 0.5239080786705017 for step 310
+loss: 0.5248812437057495 for step 311
+loss: 0.5189101099967957 for step 312
+loss: 0.5280544757843018 for step 313
+loss: 0.5258914232254028 for step 314
+loss: 0.5041307806968689 for step 315
+loss: 0.5179585218429565 for step 316
+loss: 0.5074877738952637 for step 317
+loss: 0.5180638432502747 for step 318
+loss: 0.5127261281013489 for step 319
+loss: 0.5094822645187378 for step 320
+loss: 0.514776885509491 for step 321
+loss: 0.5038691163063049 for step 322
+loss: 0.5190051794052124 for step 323
+loss: 0.5045034885406494 for step 324
+loss: 0.5100988745689392 for step 325
+loss: 0.49698907136917114 for step 326
+loss: 0.5067217946052551 for step 327
+loss: 0.5033280253410339 for step 328
+loss: 0.49825793504714966 for step 329
+loss: 0.4982500672340393 for step 330
+loss: 0.4965258240699768 for step 331
+loss: 0.5027119517326355 for step 332
+loss: 0.4972221553325653 for step 333
+loss: 0.49873754382133484 for step 334
+loss: 0.4936348795890808 for step 335
+loss: 0.49993661046028137 for step 336
+loss: 0.5043853521347046 for step 337
+loss: 0.5093268156051636 for step 338
+loss: 0.49525514245033264 for step 339
+loss: 0.5044012069702148 for step 340
+loss: 0.5301990509033203 for step 341
+loss: 0.5136375427246094 for step 342
+loss: 0.5370171070098877 for step 343
+loss: 0.5137618780136108 for step 344
+loss: 0.5243422985076904 for step 345
+loss: 0.5152422189712524 for step 346
+loss: 0.5355350375175476 for step 347
+loss: 0.5176211595535278 for step 348
+loss: 0.5368499159812927 for step 349
+loss: 0.5142696499824524 for step 350
+loss: 0.5120639801025391 for step 351
+loss: 0.5108453035354614 for step 352
+loss: 0.5246695280075073 for step 353
+loss: 0.5234438180923462 for step 354
+loss: 0.521373987197876 for step 355
+loss: 0.5189226865768433 for step 356
+loss: 0.515755295753479 for step 357
+loss: 0.4963374137878418 for step 358
+loss: 0.5397539138793945 for step 359
+loss: 0.5250114798545837 for step 360
+loss: 0.5144265294075012 for step 361
+loss: 0.5267470479011536 for step 362
+loss: 0.529924750328064 for step 363
+loss: 0.5076488852500916 for step 364
+loss: 0.51014643907547 for step 365
+loss: 0.5014705061912537 for step 366
+loss: 0.527247428894043 for step 367
+loss: 0.5061378479003906 for step 368
+loss: 0.5084760785102844 for step 369
+loss: 0.5053110122680664 for step 370
+loss: 0.5147027969360352 for step 371
+loss: 0.50071120262146 for step 372
+loss: 0.509355366230011 for step 373
+loss: 0.5076059103012085 for step 374
+loss: 0.5054317116737366 for step 375
+loss: 0.49861225485801697 for step 376
+loss: 0.5047390460968018 for step 377
+loss: 0.5034757852554321 for step 378
+loss: 0.5155647993087769 for step 379
+loss: 0.5004492998123169 for step 380
+loss: 0.5079658627510071 for step 381
+loss: 0.49896296858787537 for step 382
+loss: 0.508223295211792 for step 383
+loss: 0.5050359964370728 for step 384
+loss: 0.5046660900115967 for step 385
+loss: 0.5001740455627441 for step 386
+loss: 0.5061052441596985 for step 387
+loss: 0.5061079263687134 for step 388
+loss: 0.4972301721572876 for step 389
+loss: 0.49850940704345703 for step 390
+loss: 0.4976465106010437 for step 391
+loss: 0.49872976541519165 for step 392
+loss: 0.503278374671936 for step 393
+loss: 0.5023175477981567 for step 394
+loss: 0.5024253129959106 for step 395
+loss: 0.4955369830131531 for step 396
+loss: 0.5056124925613403 for step 397
+loss: 0.49160265922546387 for step 398
+loss: 0.4948744773864746 for step 399
+loss: 0.5068671107292175 for step 400
+loss: 0.49151208996772766 for step 401
+loss: 0.49833282828330994 for step 402
+loss: 0.4887596070766449 for step 403
+loss: 0.49687397480010986 for step 404
+loss: 0.49347826838493347 for step 405
+loss: 0.4901036322116852 for step 406
+loss: 0.49062299728393555 for step 407
+loss: 0.4923550486564636 for step 408
+loss: 0.48991137742996216 for step 409
+loss: 0.4930696487426758 for step 410
+loss: 0.4914343059062958 for step 411
+loss: 0.49334716796875 for step 412
+loss: 0.49532145261764526 for step 413
+loss: 0.4979657530784607 for step 414
+loss: 0.49549105763435364 for step 415
+loss: 0.4909747540950775 for step 416
+loss: 0.49361228942871094 for step 417
+loss: 0.49442803859710693 for step 418
+loss: 0.49245980381965637 for step 419
+loss: 0.4888220429420471 for step 420
+loss: 0.4903841018676758 for step 421
+loss: 0.4973686635494232 for step 422
+loss: 0.4983759820461273 for step 423
+loss: 0.4933437705039978 for step 424
+loss: 0.4929714798927307 for step 425
+loss: 0.4940328001976013 for step 426
+loss: 0.489889919757843 for step 427
+loss: 0.49460846185684204 for step 428
+loss: 0.48640769720077515 for step 429
+loss: 0.4904780387878418 for step 430
+loss: 0.5241937637329102 for step 431
+loss: 0.5576976537704468 for step 432
+loss: 0.5539920330047607 for step 433
+loss: 0.5318642258644104 for step 434
+loss: 0.5317531228065491 for step 435
+loss: 0.5279440879821777 for step 436
+loss: 0.5270718932151794 for step 437
+loss: 0.5005908012390137 for step 438
+loss: 0.5189322233200073 for step 439
+loss: 0.518165111541748 for step 440
+loss: 0.5115135908126831 for step 441
+loss: 0.5042636394500732 for step 442
+loss: 0.5173091888427734 for step 443
+loss: 0.5025231838226318 for step 444
+loss: 0.5013036727905273 for step 445
+loss: 0.5028688311576843 for step 446
+loss: 0.5076451301574707 for step 447
+loss: 0.5009002685546875 for step 448
+loss: 0.5058186054229736 for step 449
+loss: 0.5021154284477234 for step 450
+loss: 0.49287867546081543 for step 451
+loss: 0.4880197048187256 for step 452
+loss: 0.4915863275527954 for step 453
+loss: 0.4983258545398712 for step 454
+loss: 0.49580150842666626 for step 455
+loss: 0.49800264835357666 for step 456
+loss: 0.49110954999923706 for step 457
+loss: 0.49556219577789307 for step 458
+loss: 0.4984806180000305 for step 459
+loss: 0.4955485761165619 for step 460
+loss: 0.48904094099998474 for step 461
+loss: 0.49118247628211975 for step 462
+loss: 0.48694613575935364 for step 463
+loss: 0.48966628313064575 for step 464
+loss: 0.4882275462150574 for step 465
+loss: 0.4893531799316406 for step 466
+loss: 0.49018576741218567 for step 467
+loss: 0.48572757840156555 for step 468
+loss: 0.48383626341819763 for step 469
+loss: 0.48392531275749207 for step 470
+loss: 0.48082125186920166 for step 471
+loss: 0.48444482684135437 for step 472
+loss: 0.4855417311191559 for step 473
+loss: 0.4950144588947296 for step 474
+loss: 0.4845890998840332 for step 475
+loss: 0.48064684867858887 for step 476
+loss: 0.4923228621482849 for step 477
+loss: 0.491496741771698 for step 478
+loss: 0.49120908975601196 for step 479
+loss: 0.4930921792984009 for step 480
+loss: 0.48633700609207153 for step 481
+loss: 0.48268094658851624 for step 482
+loss: 0.49073857069015503 for step 483
+loss: 0.4876359701156616 for step 484
+loss: 0.49356693029403687 for step 485
+loss: 0.5012587308883667 for step 486
+loss: 0.489804744720459 for step 487
+loss: 0.4865807294845581 for step 488
+loss: 0.4918578863143921 for step 489
+loss: 0.4978557825088501 for step 490
+loss: 0.49458104372024536 for step 491
+loss: 0.494379460811615 for step 492
+loss: 0.4938849210739136 for step 493
+loss: 0.49370330572128296 for step 494
+loss: 0.4951742887496948 for step 495
+loss: 0.4851765036582947 for step 496
+loss: 0.4971734285354614 for step 497
+loss: 0.4911171793937683 for step 498
+loss: 0.48338574171066284 for step 499
