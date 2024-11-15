@@ -5,6 +5,7 @@ import torch
 import cellxgene_census
 import warnings
 import scanpy as sc
+import time
 warnings.filterwarnings("ignore")
 
 
@@ -14,7 +15,7 @@ warnings.filterwarnings("ignore")
 ################################################################################
 
 # Model configuration
-batch_size = 1
+batch_size = 64
 set_size = 1024
 
 TOKEN_DIM = 5120  # ESM-2 embedding dimension
@@ -104,6 +105,7 @@ class TransformerModel(nn.Module):
 ########################## Model initialization ################################
 ################################################################################
 
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model = TransformerModel(
     token_dim=TOKEN_DIM,
     d_model=D_MODEL,
@@ -115,9 +117,8 @@ model = TransformerModel(
 )
 
 model.eval()
-model.to('cpu')
-
-# ... after model initialization ...
+model.to(device)
+print(f'Using device: {device}')
 trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
 total_params = sum(p.numel() for p in model.parameters())
 print(f'Total parameters: {total_params:,}')
@@ -131,33 +132,53 @@ gene_names = torch.load('gene_names.pt')
 
 adata = sc.read_h5ad('human_tongue.h5ad')
 
-print(adata)
 
 mask = ~adata.var["feature_name"].str.contains("ENSG")
 adata = adata[:, mask]
-print(adata)
-
 mask = adata.var["feature_name"].isin(gene_names)
 adata = adata[:, mask]
-print(adata)
-
 
 i = 0
-data = torch.from_numpy(adata.X.toarray())
-while i < data.shape[0]:
-    if (i + batch_size) < data.shape[0]:
-        batch = data[i:i+batch_size, :]
+data = torch.from_numpy(adata.X.toarray()).to(device)
+cell_embs = []
+total_time = 0
+total_tokens = 0
+
+with torch.no_grad():
+    while i < data.shape[0]:
+        start_time = time.time()
+        
+        if (i + batch_size) < data.shape[0]:
+            batch = data[i:i+batch_size, :]
+            current_batch_size = batch_size
+        else:
+            batch = data[i:, :]
+            current_batch_size = data.shape[0] - i
+            
         batch = torch.log1p(batch)
         batch = batch / torch.sum(batch, dim=1, keepdim=True)
         batch = torch.multinomial(batch, 1023, replacement=True)
-    break
+        
+        batch = model.pe_embedding(batch)
+        batch = batch.permute(1, 0, 2)
+        
+        cell_emb = model(batch)
+        cell_embs.append(cell_emb)
+        
+        end_time = time.time()
+        batch_time = end_time - start_time
+        total_time += batch_time
+        tokens_processed = current_batch_size * 1024  # Including CLS token
+        total_tokens += tokens_processed
+        
+        print(f'Processed {i}/{data.shape[0]} cells')
+        print(f'Batch processing time: {batch_time:.3f}s')
+        print(f'Tokens per second: {tokens_processed/batch_time:.2f}')
+        
+        i += batch_size
 
-
-batch = model.pe_embedding(batch)
-print(batch.shape)
-
-batch = batch.permute(1, 0, 2)
-
-cell_emb = model(batch)
-print(cell_emb.shape)
-torch.save(cell_emb, 'cell_emb.pt')
+    cell_embs = torch.cat(cell_embs, dim=0)
+    print(f'Final embeddings shape: {cell_embs.shape}')
+    print(f'Total processing time: {total_time:.2f}s')
+    print(f'Average tokens per second: {total_tokens/total_time:.2f}')
+    torch.save(cell_embs.cpu(), 'cell_emb.pt')

@@ -1,0 +1,959 @@
+Using device: cuda
+Total parameters: 202,714,377
+Trainable parameters: 102,541,577
+Processed 32/15020 cells
+Processed 64/15020 cells
+Processed 96/15020 cells
+Processed 128/15020 cells
+The "stable" release is currently 2024-07-01. Specify 'census_version="2024-07-01"' in future calls to open_soma() to ensure data consistency.
+Using device: cuda
+Total parameters: 202,714,377
+Trainable parameters: 102,541,577
+Processed 64/15020 cells
+Processed 128/15020 cells
+Processed 192/15020 cells
+Processed 256/15020 cells
+Processed 320/15020 cells
+Processed 384/15020 cells
+Processed 448/15020 cells
+Processed 512/15020 cells
+Processed 576/15020 cells
+Processed 640/15020 cells
+Processed 704/15020 cells
+Processed 768/15020 cells
+Processed 832/15020 cells
+Processed 896/15020 cells
+Processed 960/15020 cells
+Processed 1024/15020 cells
+Processed 1088/15020 cells
+Processed 1152/15020 cells
+Processed 1216/15020 cells
+Processed 1280/15020 cells
+Processed 1344/15020 cells
+Processed 1408/15020 cells
+Processed 1472/15020 cells
+Processed 1536/15020 cells
+Processed 1600/15020 cells
+Processed 1664/15020 cells
+Processed 1728/15020 cells
+Processed 1792/15020 cells
+Processed 1856/15020 cells
+Processed 1920/15020 cells
+Processed 1984/15020 cells
+Processed 2048/15020 cells
+Processed 2112/15020 cells
+Processed 2176/15020 cells
+Processed 2240/15020 cells
+Processed 2304/15020 cells
+Processed 2368/15020 cells
+Processed 2432/15020 cells
+Processed 2496/15020 cells
+Processed 2560/15020 cells
+Processed 2624/15020 cells
+Processed 2688/15020 cells
+Processed 2752/15020 cells
+Processed 2816/15020 cells
+Processed 2880/15020 cells
+Processed 2944/15020 cells
+Processed 3008/15020 cells
+Processed 3072/15020 cells
+Processed 3136/15020 cells
+Processed 3200/15020 cells
+Processed 3264/15020 cells
+Processed 3328/15020 cells
+Processed 3392/15020 cells
+Processed 3456/15020 cells
+Processed 3520/15020 cells
+Processed 3584/15020 cells
+Processed 3648/15020 cells
+Processed 3712/15020 cells
+Processed 3776/15020 cells
+Processed 3840/15020 cells
+Processed 3904/15020 cells
+Processed 3968/15020 cells
+Processed 4032/15020 cells
+Processed 4096/15020 cells
+Processed 4160/15020 cells
+Processed 4224/15020 cells
+Processed 4288/15020 cells
+Processed 4352/15020 cells
+Processed 4416/15020 cells
+Processed 4480/15020 cells
+Processed 4544/15020 cells
+Processed 4608/15020 cells
+Processed 4672/15020 cells
+Processed 4736/15020 cells
+Processed 4800/15020 cells
+Processed 4864/15020 cells
+Processed 4928/15020 cells
+Processed 4992/15020 cells
+Processed 5056/15020 cells
+Processed 5120/15020 cells
+Processed 5184/15020 cells
+Processed 5248/15020 cells
+Processed 5312/15020 cells
+Processed 5376/15020 cells
+Processed 5440/15020 cells
+Processed 5504/15020 cells
+Processed 5568/15020 cells
+Processed 5632/15020 cells
+Processed 5696/15020 cells
+Processed 5760/15020 cells
+Processed 5824/15020 cells
+Processed 5888/15020 cells
+Processed 5952/15020 cells
+Processed 6016/15020 cells
+Processed 6080/15020 cells
+Processed 6144/15020 cells
+Processed 6208/15020 cells
+Processed 6272/15020 cells
+Processed 6336/15020 cells
+Processed 6400/15020 cells
+Processed 6464/15020 cells
+Processed 6528/15020 cells
+Processed 6592/15020 cells
+Processed 6656/15020 cells
+Processed 6720/15020 cells
+Processed 6784/15020 cells
+Processed 6848/15020 cells
+Processed 6912/15020 cells
+Processed 6976/15020 cells
+Processed 7040/15020 cells
+Processed 7104/15020 cells
+Processed 7168/15020 cells
+Processed 7232/15020 cells
+Processed 7296/15020 cells
+Processed 7360/15020 cells
+Processed 7424/15020 cells
+Processed 7488/15020 cells
+Processed 7552/15020 cells
+Processed 7616/15020 cells
+Processed 7680/15020 cells
+Processed 7744/15020 cells
+Processed 7808/15020 cells
+Processed 7872/15020 cells
+Processed 7936/15020 cells
+Processed 8000/15020 cells
+Processed 8064/15020 cells
+Processed 8128/15020 cells
+Processed 8192/15020 cells
+Processed 8256/15020 cells
+Processed 8320/15020 cells
+Processed 8384/15020 cells
+Processed 8448/15020 cells
+Processed 8512/15020 cells
+Processed 8576/15020 cells
+Processed 8640/15020 cells
+Processed 8704/15020 cells
+Processed 8768/15020 cells
+Processed 8832/15020 cells
+Processed 8896/15020 cells
+Processed 8960/15020 cells
+Processed 9024/15020 cells
+Processed 9088/15020 cells
+Processed 9152/15020 cells
+Processed 9216/15020 cells
+Processed 9280/15020 cells
+Processed 9344/15020 cells
+Processed 9408/15020 cells
+Processed 9472/15020 cells
+Processed 9536/15020 cells
+Processed 9600/15020 cells
+Processed 9664/15020 cells
+Processed 9728/15020 cells
+Processed 9792/15020 cells
+Processed 9856/15020 cells
+Processed 9920/15020 cells
+Processed 9984/15020 cells
+Processed 10048/15020 cells
+Processed 10112/15020 cells
+Processed 10176/15020 cells
+Processed 10240/15020 cells
+Processed 10304/15020 cells
+Processed 10368/15020 cells
+Processed 10432/15020 cells
+Processed 10496/15020 cells
+Processed 10560/15020 cells
+Processed 10624/15020 cells
+Processed 10688/15020 cells
+Processed 10752/15020 cells
+Processed 10816/15020 cells
+Processed 10880/15020 cells
+Processed 10944/15020 cells
+Processed 11008/15020 cells
+Processed 11072/15020 cells
+Processed 11136/15020 cells
+Processed 11200/15020 cells
+Processed 11264/15020 cells
+Processed 11328/15020 cells
+Processed 11392/15020 cells
+Processed 11456/15020 cells
+Processed 11520/15020 cells
+Processed 11584/15020 cells
+Processed 11648/15020 cells
+Processed 11712/15020 cells
+Processed 11776/15020 cells
+Processed 11840/15020 cells
+Processed 11904/15020 cells
+Processed 11968/15020 cells
+Processed 12032/15020 cells
+Processed 12096/15020 cells
+Processed 12160/15020 cells
+Processed 12224/15020 cells
+Processed 12288/15020 cells
+Processed 12352/15020 cells
+Processed 12416/15020 cells
+Processed 12480/15020 cells
+Processed 12544/15020 cells
+Processed 12608/15020 cells
+Processed 12672/15020 cells
+Processed 12736/15020 cells
+Processed 12800/15020 cells
+Processed 12864/15020 cells
+Processed 12928/15020 cells
+Processed 12992/15020 cells
+Processed 13056/15020 cells
+Processed 13120/15020 cells
+Processed 13184/15020 cells
+Processed 13248/15020 cells
+Processed 13312/15020 cells
+Processed 13376/15020 cells
+Processed 13440/15020 cells
+Processed 13504/15020 cells
+Processed 13568/15020 cells
+Processed 13632/15020 cells
+Processed 13696/15020 cells
+Processed 13760/15020 cells
+Processed 13824/15020 cells
+Processed 13888/15020 cells
+Processed 13952/15020 cells
+Processed 14016/15020 cells
+Processed 14080/15020 cells
+Processed 14144/15020 cells
+Processed 14208/15020 cells
+Processed 14272/15020 cells
+Processed 14336/15020 cells
+Processed 14400/15020 cells
+Processed 14464/15020 cells
+Processed 14528/15020 cells
+Processed 14592/15020 cells
+Processed 14656/15020 cells
+Processed 14720/15020 cells
+Processed 14784/15020 cells
+Processed 14848/15020 cells
+Processed 14912/15020 cells
+Processed 14976/15020 cells
+Processed 15040/15020 cells
+Final embeddings shape: torch.Size([15020, 1280])
+The "stable" release is currently 2024-07-01. Specify 'census_version="2024-07-01"' in future calls to open_soma() to ensure data consistency.
+Using device: cuda
+Total parameters: 202,714,377
+Trainable parameters: 102,541,577
+Processed 0/15020 cells
+Batch processing time: 0.708s
+Tokens per second: 92588.71
+Processed 64/15020 cells
+Batch processing time: 0.002s
+Tokens per second: 33006472.98
+Processed 128/15020 cells
+Batch processing time: 0.002s
+Tokens per second: 40257455.62
+Processed 192/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 52527786.54
+Processed 256/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 53332927.23
+Processed 320/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 54077888.44
+Processed 384/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 50650065.77
+Processed 448/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 51610572.09
+Processed 512/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 45904794.08
+Processed 576/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 46392895.69
+Processed 640/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 50270282.91
+Processed 704/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 51216304.63
+Processed 768/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 51302334.26
+Processed 832/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 52188704.57
+Processed 896/15020 cells
+Batch processing time: 0.001s
+Tokens per second: 43756432.18
+Processed 960/15020 cells
+Batch processing time: 0.570s
+Tokens per second: 114977.71
+Processed 1024/15020 cells
+Batch processing time: 0.587s
+Tokens per second: 111619.79
+Processed 1088/15020 cells
+Batch processing time: 0.588s
+Tokens per second: 111406.49
+Processed 1152/15020 cells
+Batch processing time: 0.584s
+Tokens per second: 112215.35
+Processed 1216/15020 cells
+Batch processing time: 0.593s
+Tokens per second: 110523.50
+Processed 1280/15020 cells
+Batch processing time: 0.596s
+Tokens per second: 109958.60
+Processed 1344/15020 cells
+Batch processing time: 0.592s
+Tokens per second: 110720.72
+Processed 1408/15020 cells
+Batch processing time: 0.593s
+Tokens per second: 110537.10
+Processed 1472/15020 cells
+Batch processing time: 0.594s
+Tokens per second: 110259.98
+Processed 1536/15020 cells
+Batch processing time: 0.598s
+Tokens per second: 109617.66
+Processed 1600/15020 cells
+Batch processing time: 0.590s
+Tokens per second: 111106.13
+Processed 1664/15020 cells
+Batch processing time: 0.596s
+Tokens per second: 109929.88
+Processed 1728/15020 cells
+Batch processing time: 0.598s
+Tokens per second: 109511.58
+Processed 1792/15020 cells
+Batch processing time: 0.600s
+Tokens per second: 109300.74
+Processed 1856/15020 cells
+Batch processing time: 0.598s
+Tokens per second: 109549.07
+Processed 1920/15020 cells
+Batch processing time: 0.592s
+Tokens per second: 110771.54
+Processed 1984/15020 cells
+Batch processing time: 0.592s
+Tokens per second: 110675.78
+Processed 2048/15020 cells
+Batch processing time: 0.601s
+Tokens per second: 109117.85
+Processed 2112/15020 cells
+Batch processing time: 0.597s
+Tokens per second: 109817.05
+Processed 2176/15020 cells
+Batch processing time: 0.601s
+Tokens per second: 109126.21
+Processed 2240/15020 cells
+Batch processing time: 0.601s
+Tokens per second: 108983.52
+Processed 2304/15020 cells
+Batch processing time: 0.602s
+Tokens per second: 108800.49
+Processed 2368/15020 cells
+Batch processing time: 0.599s
+Tokens per second: 109384.55
+Processed 2432/15020 cells
+Batch processing time: 0.599s
+Tokens per second: 109354.79
+Processed 2496/15020 cells
+Batch processing time: 0.600s
+Tokens per second: 109144.58
+Processed 2560/15020 cells
+Batch processing time: 0.602s
+Tokens per second: 108872.67
+Processed 2624/15020 cells
+Batch processing time: 0.599s
+Tokens per second: 109390.86
+Processed 2688/15020 cells
+Batch processing time: 0.601s
+Tokens per second: 109105.07
+Processed 2752/15020 cells
+Batch processing time: 0.600s
+Tokens per second: 109266.76
+Processed 2816/15020 cells
+Batch processing time: 0.600s
+Tokens per second: 109188.81
+Processed 2880/15020 cells
+Batch processing time: 0.600s
+Tokens per second: 109159.88
+Processed 2944/15020 cells
+Batch processing time: 0.602s
+Tokens per second: 108915.55
+Processed 3008/15020 cells
+Batch processing time: 0.597s
+Tokens per second: 109817.67
+Processed 3072/15020 cells
+Batch processing time: 0.597s
+Tokens per second: 109757.90
+Processed 3136/15020 cells
+Batch processing time: 0.599s
+Tokens per second: 109398.05
+Processed 3200/15020 cells
+Batch processing time: 0.605s
+Tokens per second: 108409.88
+Processed 3264/15020 cells
+Batch processing time: 0.600s
+Tokens per second: 109194.32
+Processed 3328/15020 cells
+Batch processing time: 0.599s
+Tokens per second: 109374.63
+Processed 3392/15020 cells
+Batch processing time: 0.601s
+Tokens per second: 109018.19
+Processed 3456/15020 cells
+Batch processing time: 0.599s
+Tokens per second: 109431.45
+Processed 3520/15020 cells
+Batch processing time: 0.601s
+Tokens per second: 109097.24
+Processed 3584/15020 cells
+Batch processing time: 0.600s
+Tokens per second: 109189.11
+Processed 3648/15020 cells
+Batch processing time: 0.599s
+Tokens per second: 109349.43
+Processed 3712/15020 cells
+Batch processing time: 0.600s
+Tokens per second: 109238.62
+Processed 3776/15020 cells
+Batch processing time: 0.601s
+Tokens per second: 109123.22
+Processed 3840/15020 cells
+Batch processing time: 0.599s
+Tokens per second: 109392.08
+Processed 3904/15020 cells
+Batch processing time: 0.601s
+Tokens per second: 109099.19
+Processed 3968/15020 cells
+Batch processing time: 0.600s
+Tokens per second: 109292.87
+Processed 4032/15020 cells
+Batch processing time: 0.599s
+Tokens per second: 109344.69
+Processed 4096/15020 cells
+Batch processing time: 0.601s
+Tokens per second: 109103.78
+Processed 4160/15020 cells
+Batch processing time: 0.600s
+Tokens per second: 109305.73
+Processed 4224/15020 cells
+Batch processing time: 0.601s
+Tokens per second: 108988.88
+Processed 4288/15020 cells
+Batch processing time: 0.608s
+Tokens per second: 107747.98
+Processed 4352/15020 cells
+Batch processing time: 0.611s
+Tokens per second: 107300.71
+Processed 4416/15020 cells
+Batch processing time: 0.599s
+Tokens per second: 109403.40
+Processed 4480/15020 cells
+Batch processing time: 0.617s
+Tokens per second: 106278.31
+Processed 4544/15020 cells
+Batch processing time: 0.604s
+Tokens per second: 108546.87
+Processed 4608/15020 cells
+Batch processing time: 0.612s
+Tokens per second: 107150.97
+Processed 4672/15020 cells
+Batch processing time: 0.609s
+Tokens per second: 107527.32
+Processed 4736/15020 cells
+Batch processing time: 0.610s
+Tokens per second: 107457.80
+Processed 4800/15020 cells
+Batch processing time: 0.611s
+Tokens per second: 107267.54
+Processed 4864/15020 cells
+Batch processing time: 0.609s
+Tokens per second: 107577.57
+Processed 4928/15020 cells
+Batch processing time: 0.607s
+Tokens per second: 107928.45
+Processed 4992/15020 cells
+Batch processing time: 0.610s
+Tokens per second: 107365.38
+Processed 5056/15020 cells
+Batch processing time: 0.614s
+Tokens per second: 106681.54
+Processed 5120/15020 cells
+Batch processing time: 0.614s
+Tokens per second: 106760.39
+Processed 5184/15020 cells
+Batch processing time: 0.611s
+Tokens per second: 107249.67
+Processed 5248/15020 cells
+Batch processing time: 0.615s
+Tokens per second: 106490.56
+Processed 5312/15020 cells
+Batch processing time: 0.613s
+Tokens per second: 106827.48
+Processed 5376/15020 cells
+Batch processing time: 0.614s
+Tokens per second: 106748.58
+Processed 5440/15020 cells
+Batch processing time: 0.614s
+Tokens per second: 106797.48
+Processed 5504/15020 cells
+Batch processing time: 0.617s
+Tokens per second: 106239.45
+Processed 5568/15020 cells
+Batch processing time: 0.615s
+Tokens per second: 106573.14
+Processed 5632/15020 cells
+Batch processing time: 0.604s
+Tokens per second: 108510.96
+Processed 5696/15020 cells
+Batch processing time: 0.617s
+Tokens per second: 106260.23
+Processed 5760/15020 cells
+Batch processing time: 0.614s
+Tokens per second: 106665.90
+Processed 5824/15020 cells
+Batch processing time: 0.613s
+Tokens per second: 106897.03
+Processed 5888/15020 cells
+Batch processing time: 0.617s
+Tokens per second: 106215.15
+Processed 5952/15020 cells
+Batch processing time: 0.616s
+Tokens per second: 106456.54
+Processed 6016/15020 cells
+Batch processing time: 0.617s
+Tokens per second: 106167.11
+Processed 6080/15020 cells
+Batch processing time: 0.615s
+Tokens per second: 106530.88
+Processed 6144/15020 cells
+Batch processing time: 0.614s
+Tokens per second: 106764.21
+Processed 6208/15020 cells
+Batch processing time: 0.617s
+Tokens per second: 106227.67
+Processed 6272/15020 cells
+Batch processing time: 0.617s
+Tokens per second: 106185.94
+Processed 6336/15020 cells
+Batch processing time: 0.619s
+Tokens per second: 105932.18
+Processed 6400/15020 cells
+Batch processing time: 0.618s
+Tokens per second: 105967.06
+Processed 6464/15020 cells
+Batch processing time: 0.619s
+Tokens per second: 105900.88
+Processed 6528/15020 cells
+Batch processing time: 0.609s
+Tokens per second: 107607.22
+Processed 6592/15020 cells
+Batch processing time: 0.619s
+Tokens per second: 105884.32
+Processed 6656/15020 cells
+Batch processing time: 0.624s
+Tokens per second: 105079.03
+Processed 6720/15020 cells
+Batch processing time: 0.623s
+Tokens per second: 105255.75
+Processed 6784/15020 cells
+Batch processing time: 0.616s
+Tokens per second: 106333.16
+Processed 6848/15020 cells
+Batch processing time: 0.619s
+Tokens per second: 105832.54
+Processed 6912/15020 cells
+Batch processing time: 0.619s
+Tokens per second: 105944.23
+Processed 6976/15020 cells
+Batch processing time: 0.617s
+Tokens per second: 106261.96
+Processed 7040/15020 cells
+Batch processing time: 0.624s
+Tokens per second: 105102.65
+Processed 7104/15020 cells
+Batch processing time: 0.627s
+Tokens per second: 104583.48
+Processed 7168/15020 cells
+Batch processing time: 0.622s
+Tokens per second: 105433.06
+Processed 7232/15020 cells
+Batch processing time: 0.618s
+Tokens per second: 106097.65
+Processed 7296/15020 cells
+Batch processing time: 0.619s
+Tokens per second: 105857.65
+Processed 7360/15020 cells
+Batch processing time: 0.618s
+Tokens per second: 106053.32
+Processed 7424/15020 cells
+Batch processing time: 0.614s
+Tokens per second: 106793.37
+Processed 7488/15020 cells
+Batch processing time: 0.630s
+Tokens per second: 104103.98
+Processed 7552/15020 cells
+Batch processing time: 0.621s
+Tokens per second: 105540.74
+Processed 7616/15020 cells
+Batch processing time: 0.621s
+Tokens per second: 105493.15
+Processed 7680/15020 cells
+Batch processing time: 0.622s
+Tokens per second: 105364.11
+Processed 7744/15020 cells
+Batch processing time: 0.622s
+Tokens per second: 105288.73
+Processed 7808/15020 cells
+Batch processing time: 0.624s
+Tokens per second: 105054.73
+Processed 7872/15020 cells
+Batch processing time: 0.621s
+Tokens per second: 105474.57
+Processed 7936/15020 cells
+Batch processing time: 0.620s
+Tokens per second: 105757.29
+Processed 8000/15020 cells
+Batch processing time: 0.618s
+Tokens per second: 106105.39
+Processed 8064/15020 cells
+Batch processing time: 0.625s
+Tokens per second: 104777.38
+Processed 8128/15020 cells
+Batch processing time: 0.619s
+Tokens per second: 105852.43
+Processed 8192/15020 cells
+Batch processing time: 0.624s
+Tokens per second: 104951.88
+Processed 8256/15020 cells
+Batch processing time: 0.628s
+Tokens per second: 104425.67
+Processed 8320/15020 cells
+Batch processing time: 0.624s
+Tokens per second: 104979.34
+Processed 8384/15020 cells
+Batch processing time: 0.621s
+Tokens per second: 105611.95
+Processed 8448/15020 cells
+Batch processing time: 0.621s
+Tokens per second: 105496.75
+Processed 8512/15020 cells
+Batch processing time: 0.624s
+Tokens per second: 105097.71
+Processed 8576/15020 cells
+Batch processing time: 0.614s
+Tokens per second: 106670.45
+Processed 8640/15020 cells
+Batch processing time: 0.627s
+Tokens per second: 104529.11
+Processed 8704/15020 cells
+Batch processing time: 0.622s
+Tokens per second: 105323.62
+Processed 8768/15020 cells
+Batch processing time: 0.622s
+Tokens per second: 105308.13
+Processed 8832/15020 cells
+Batch processing time: 0.632s
+Tokens per second: 103765.96
+Processed 8896/15020 cells
+Batch processing time: 0.627s
+Tokens per second: 104513.37
+Processed 8960/15020 cells
+Batch processing time: 0.627s
+Tokens per second: 104531.38
+Processed 9024/15020 cells
+Batch processing time: 0.626s
+Tokens per second: 104756.42
+Processed 9088/15020 cells
+Batch processing time: 0.629s
+Tokens per second: 104118.29
+Processed 9152/15020 cells
+Batch processing time: 0.627s
+Tokens per second: 104581.05
+Processed 9216/15020 cells
+Batch processing time: 0.625s
+Tokens per second: 104810.94
+Processed 9280/15020 cells
+Batch processing time: 0.628s
+Tokens per second: 104365.40
+Processed 9344/15020 cells
+Batch processing time: 0.626s
+Tokens per second: 104657.86
+Processed 9408/15020 cells
+Batch processing time: 0.625s
+Tokens per second: 104877.76
+Processed 9472/15020 cells
+Batch processing time: 0.629s
+Tokens per second: 104145.43
+Processed 9536/15020 cells
+Batch processing time: 0.626s
+Tokens per second: 104731.63
+Processed 9600/15020 cells
+Batch processing time: 0.626s
+Tokens per second: 104747.64
+Processed 9664/15020 cells
+Batch processing time: 0.624s
+Tokens per second: 105033.05
+Processed 9728/15020 cells
+Batch processing time: 0.627s
+Tokens per second: 104556.71
+Processed 9792/15020 cells
+Batch processing time: 0.627s
+Tokens per second: 104457.17
+Processed 9856/15020 cells
+Batch processing time: 0.626s
+Tokens per second: 104705.54
+Processed 9920/15020 cells
+Batch processing time: 0.629s
+Tokens per second: 104207.42
+Processed 9984/15020 cells
+Batch processing time: 0.626s
+Tokens per second: 104716.67
+Processed 10048/15020 cells
+Batch processing time: 0.629s
+Tokens per second: 104121.44
+Processed 10112/15020 cells
+Batch processing time: 0.626s
+Tokens per second: 104770.79
+Processed 10176/15020 cells
+Batch processing time: 0.628s
+Tokens per second: 104369.56
+Processed 10240/15020 cells
+Batch processing time: 0.630s
+Tokens per second: 104040.89
+Processed 10304/15020 cells
+Batch processing time: 0.628s
+Tokens per second: 104383.95
+Processed 10368/15020 cells
+Batch processing time: 0.631s
+Tokens per second: 103804.29
+Processed 10432/15020 cells
+Batch processing time: 0.625s
+Tokens per second: 104878.20
+Processed 10496/15020 cells
+Batch processing time: 0.629s
+Tokens per second: 104121.72
+Processed 10560/15020 cells
+Batch processing time: 0.630s
+Tokens per second: 104055.86
+Processed 10624/15020 cells
+Batch processing time: 0.628s
+Tokens per second: 104284.67
+Processed 10688/15020 cells
+Batch processing time: 0.631s
+Tokens per second: 103841.23
+Processed 10752/15020 cells
+Batch processing time: 0.628s
+Tokens per second: 104418.68
+Processed 10816/15020 cells
+Batch processing time: 0.631s
+Tokens per second: 103789.39
+Processed 10880/15020 cells
+Batch processing time: 0.627s
+Tokens per second: 104466.31
+Processed 10944/15020 cells
+Batch processing time: 0.635s
+Tokens per second: 103242.82
+Processed 11008/15020 cells
+Batch processing time: 0.628s
+Tokens per second: 104349.83
+Processed 11072/15020 cells
+Batch processing time: 0.633s
+Tokens per second: 103488.78
+Processed 11136/15020 cells
+Batch processing time: 0.630s
+Tokens per second: 103996.29
+Processed 11200/15020 cells
+Batch processing time: 0.628s
+Tokens per second: 104371.03
+Processed 11264/15020 cells
+Batch processing time: 0.631s
+Tokens per second: 103838.40
+Processed 11328/15020 cells
+Batch processing time: 0.629s
+Tokens per second: 104224.96
+Processed 11392/15020 cells
+Batch processing time: 0.631s
+Tokens per second: 103868.50
+Processed 11456/15020 cells
+Batch processing time: 0.631s
+Tokens per second: 103903.83
+Processed 11520/15020 cells
+Batch processing time: 0.633s
+Tokens per second: 103597.45
+Processed 11584/15020 cells
+Batch processing time: 0.628s
+Tokens per second: 104347.57
+Processed 11648/15020 cells
+Batch processing time: 0.634s
+Tokens per second: 103296.51
+Processed 11712/15020 cells
+Batch processing time: 0.630s
+Tokens per second: 104014.28
+Processed 11776/15020 cells
+Batch processing time: 0.634s
+Tokens per second: 103424.42
+Processed 11840/15020 cells
+Batch processing time: 0.631s
+Tokens per second: 103810.56
+Processed 11904/15020 cells
+Batch processing time: 0.631s
+Tokens per second: 103904.74
+Processed 11968/15020 cells
+Batch processing time: 0.633s
+Tokens per second: 103575.55
+Processed 12032/15020 cells
+Batch processing time: 0.631s
+Tokens per second: 103866.81
+Processed 12096/15020 cells
+Batch processing time: 0.632s
+Tokens per second: 103668.17
+Processed 12160/15020 cells
+Batch processing time: 0.633s
+Tokens per second: 103480.02
+Processed 12224/15020 cells
+Batch processing time: 0.631s
+Tokens per second: 103861.67
+Processed 12288/15020 cells
+Batch processing time: 0.637s
+Tokens per second: 102920.07
+Processed 12352/15020 cells
+Batch processing time: 0.633s
+Tokens per second: 103515.36
+Processed 12416/15020 cells
+Batch processing time: 0.632s
+Tokens per second: 103695.54
+Processed 12480/15020 cells
+Batch processing time: 0.633s
+Tokens per second: 103566.30
+Processed 12544/15020 cells
+Batch processing time: 0.631s
+Tokens per second: 103790.73
+Processed 12608/15020 cells
+Batch processing time: 0.630s
+Tokens per second: 103977.02
+Processed 12672/15020 cells
+Batch processing time: 0.635s
+Tokens per second: 103135.90
+Processed 12736/15020 cells
+Batch processing time: 0.632s
+Tokens per second: 103699.57
+Processed 12800/15020 cells
+Batch processing time: 0.630s
+Tokens per second: 103971.28
+Processed 12864/15020 cells
+Batch processing time: 0.633s
+Tokens per second: 103507.80
+Processed 12928/15020 cells
+Batch processing time: 0.632s
+Tokens per second: 103767.14
+Processed 12992/15020 cells
+Batch processing time: 0.635s
+Tokens per second: 103266.79
+Processed 13056/15020 cells
+Batch processing time: 0.636s
+Tokens per second: 103090.80
+Processed 13120/15020 cells
+Batch processing time: 0.633s
+Tokens per second: 103570.59
+Processed 13184/15020 cells
+Batch processing time: 0.632s
+Tokens per second: 103637.52
+Processed 13248/15020 cells
+Batch processing time: 0.634s
+Tokens per second: 103304.78
+Processed 13312/15020 cells
+Batch processing time: 0.635s
+Tokens per second: 103193.09
+Processed 13376/15020 cells
+Batch processing time: 0.632s
+Tokens per second: 103725.52
+Processed 13440/15020 cells
+Batch processing time: 0.635s
+Tokens per second: 103125.53
+Processed 13504/15020 cells
+Batch processing time: 0.634s
+Tokens per second: 103326.68
+Processed 13568/15020 cells
+Batch processing time: 0.633s
+Tokens per second: 103495.45
+Processed 13632/15020 cells
+Batch processing time: 0.637s
+Tokens per second: 102921.85
+Processed 13696/15020 cells
+Batch processing time: 0.635s
+Tokens per second: 103135.59
+Processed 13760/15020 cells
+Batch processing time: 0.636s
+Tokens per second: 102979.15
+Processed 13824/15020 cells
+Batch processing time: 0.632s
+Tokens per second: 103705.71
+Processed 13888/15020 cells
+Batch processing time: 0.633s
+Tokens per second: 103576.13
+Processed 13952/15020 cells
+Batch processing time: 0.634s
+Tokens per second: 103340.01
+Processed 14016/15020 cells
+Batch processing time: 0.635s
+Tokens per second: 103219.17
+Processed 14080/15020 cells
+Batch processing time: 0.634s
+Tokens per second: 103321.01
+Processed 14144/15020 cells
+Batch processing time: 0.636s
+Tokens per second: 103123.25
+Processed 14208/15020 cells
+Batch processing time: 0.636s
+Tokens per second: 103077.19
+Processed 14272/15020 cells
+Batch processing time: 0.633s
+Tokens per second: 103497.47
+Processed 14336/15020 cells
+Batch processing time: 0.635s
+Tokens per second: 103246.58
+Processed 14400/15020 cells
+Batch processing time: 0.634s
+Tokens per second: 103368.61
+Processed 14464/15020 cells
+Batch processing time: 0.635s
+Tokens per second: 103154.29
+Processed 14528/15020 cells
+Batch processing time: 0.632s
+Tokens per second: 103643.42
+Processed 14592/15020 cells
+Batch processing time: 0.634s
+Tokens per second: 103336.74
+Processed 14656/15020 cells
+Batch processing time: 0.635s
+Tokens per second: 103256.35
+Processed 14720/15020 cells
+Batch processing time: 0.635s
+Tokens per second: 103244.41
+Processed 14784/15020 cells
+Batch processing time: 0.633s
+Tokens per second: 103544.88
+Processed 14848/15020 cells
+Batch processing time: 0.635s
+Tokens per second: 103153.24
+Processed 14912/15020 cells
+Batch processing time: 0.637s
+Tokens per second: 102921.39
+Processed 14976/15020 cells
+Batch processing time: 0.634s
+Tokens per second: 71092.39
+Final embeddings shape: torch.Size([15020, 1280])
+Total processing time: 136.83s
+Average tokens per second: 112407.93
