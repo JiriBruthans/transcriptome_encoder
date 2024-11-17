@@ -133,6 +133,10 @@ model = TransformerModel(
 
 model.to(device)
 print(f'Using device: {device}')
+
+#compile the model for faster training
+model = torch.compile(model)
+
 trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
 total_params = sum(p.numel() for p in model.parameters())
 print(f'Total parameters: {total_params:,}')
