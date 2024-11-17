@@ -6,6 +6,7 @@ cd $SCRATCHDIR
 # Clone repository
 git clone https://github.com/JiriBruthans/transcriptome_encoder.git
 cd transcriptome_encoder
+#copy all necessary files
 cp /storage/praha1/home/jiribruthans/sota/transcriptome_encoder/embedding_layer.pt .
 cp /storage/praha1/home/jiribruthans/sota/transcriptome_encoder/gene_names.pt .
 cp /storage/praha1/home/jiribruthans/sota/transcriptome_encoder/human_tongue.h5ad .

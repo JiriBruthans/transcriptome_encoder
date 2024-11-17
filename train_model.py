@@ -66,6 +66,12 @@ class TransformerModel(nn.Module):
             full_block(512, 128, self.dropout),
             nn.Linear(128, 1)
         )
+        self.apply(self._init_weights)
+
+    def _init_weights(self, module):
+        if isinstance(module, nn.Linear):
+            if module.bias is not None:
+                torch.nn.init.zeros_(module.bias)
 
     def forward(self, src: Tensor, g_plus: Tensor, g_minus: Tensor):
         """
@@ -109,6 +115,10 @@ class TransformerModel(nn.Module):
 ################################################################################
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+#use TensorFloat32 for faster computation
+torch.set_float32_matmul_precision('high')
+
 model = TransformerModel(
     token_dim=TOKEN_DIM,
     d_model=D_MODEL,
@@ -163,9 +173,11 @@ total_time = 0
 total_tokens = 0
 
 n = 0
-for epoch in range(10):
+for epoch in range(1):
     i = 0  # Reset i at the start of each epoch
     while i < data.shape[0]:
+        if n > 50:
+            break
         start_time = time.time()
         if (i + batch_size) < data.shape[0]:
             batch = data[i:i+batch_size, :]
@@ -179,10 +191,16 @@ for epoch in range(10):
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
+        torch.cuda.synchronize()
+        end_time = time.time()
+        batch_time = end_time - start_time
+        cells_per_second = current_batch_size / batch_time
+        
         # Print and log the loss
         print(f"loss: {loss.item()}, epoch {epoch}, step {n}, cells {i} to {i+batch_size} of {data.shape[0]}")
+        print(f"Processing speed: {cells_per_second:.2f} cells/second")
         with open('logs/loss_log.csv', 'a') as f:
-            f.write(f"{epoch},{n},{loss.item()}\n")
+            f.write(f"{epoch},{n},{loss.item()},{cells_per_second}\n")
 
         n += 1        
         i += batch_size
