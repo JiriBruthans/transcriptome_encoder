@@ -2,3 +2,4 @@ gene_names.pt
 *.pt
 embedding_layer.pt
 *.h5ad
+logs/*

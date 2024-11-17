@@ -14,7 +14,7 @@ warnings.filterwarnings("ignore")
 ################################################################################
 
 # Model configuration
-batch_size = 16
+batch_size = 64
 set_size = 1024
 n_genes = 19565
 n_loss_total = 1024
@@ -162,26 +162,30 @@ cell_embs = []
 total_time = 0
 total_tokens = 0
 
-#while i < data.shape[0]:
-for i in range(500):
-    start_time = time.time()
-    if (i + batch_size) < data.shape[0]:
-        batch = data[i:i+batch_size, :]
-        current_batch_size = batch_size
-    else:
-        batch = data[i:, :]
-        current_batch_size = data.shape[0] - i
-    
-    cell_emb, loss = forward(batch, current_batch_size)
-    cell_embs.append(cell_emb)
-    optimizer.zero_grad()
-    loss.backward()
-    optimizer.step()
-    print(f"loss: {loss.item()} for step {i}")
-
+n = 0
+for epoch in range(10):
+    i = 0  # Reset i at the start of each epoch
+    while i < data.shape[0]:
+        start_time = time.time()
+        if (i + batch_size) < data.shape[0]:
+            batch = data[i:i+batch_size, :]
+            current_batch_size = batch_size
+        else:
+            batch = data[i:, :]
+            current_batch_size = data.shape[0] - i
         
-    #i += batch_size
-    #break
+        cell_emb, loss = forward(batch, current_batch_size)
+        cell_embs.append(cell_emb)
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+        # Print and log the loss
+        print(f"loss: {loss.item()}, epoch {epoch}, step {n}, cells {i} to {i+batch_size} of {data.shape[0]}")
+        with open('logs/loss_log.csv', 'a') as f:
+            f.write(f"{epoch},{n},{loss.item()}\n")
 
+        n += 1        
+        i += batch_size
 cell_embs = torch.cat(cell_embs, dim=0)
 torch.save(cell_embs.cpu(), 'cell_emb.pt')
+torch.save(model.state_dict(), 'model_state_dict_1_epoch.pt')
