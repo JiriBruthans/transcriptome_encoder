@@ -90,6 +90,7 @@ class TransformerModel(nn.Module):
         src = torch.cat((cls_tokens, src), dim=0)
         output = self.transformer_encoder(src)
         embedding = output[0, :, :] # select only the CLS token
+        #import code; code.interact(local=locals())
         embedding = nn.functional.normalize(embedding, dim=1) # Normalize
         
         #loss calculation
@@ -129,6 +130,7 @@ model = TransformerModel(
     n_loss=n_loss
 )
 
+
 model.to(device)
 print(f'Using device: {device}')
 trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
@@ -155,8 +157,9 @@ def forward(batch, current_batch_size):
     
     batch = model.pe_embedding(batch)
     batch = batch.permute(1, 0, 2)
-    
-    cell_emb, loss = model(batch, g_plus, g_minus)
+
+    with torch.autocast(device_type=device.type, dtype=torch.bfloat16):
+        cell_emb, loss = model(batch, g_plus, g_minus)
     return cell_emb, loss
 
 
@@ -185,7 +188,6 @@ for epoch in range(1):
         else:
             batch = data[i:, :]
             current_batch_size = data.shape[0] - i
-        
         cell_emb, loss = forward(batch, current_batch_size)
         cell_embs.append(cell_emb)
         optimizer.zero_grad()
