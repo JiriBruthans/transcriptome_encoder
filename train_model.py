@@ -8,7 +8,6 @@ import time
 warnings.filterwarnings("ignore")
 
 
-
 ################################################################################
 ########################## Model definition ####################################
 ################################################################################
@@ -173,18 +172,18 @@ def forward(batch, current_batch_size):
 optimizer = torch.optim.AdamW(model.parameters(), lr=3e-4)
 
 adata = sc.read_h5ad('human_tongue.h5ad')
-i = 0
 data = torch.from_numpy(adata.X.toarray()).to(device)
 cell_embs = []
 total_time = 0
 total_tokens = 0
-
 n = 0
+
+
 for epoch in range(1):
     i = 0  # Reset i at the start of each epoch
+    #shuffle the data
+    data = data[torch.randperm(data.size(0))]
     while i < data.shape[0]:
-        if n > 50:
-            break
         start_time = time.time()
         if (i + batch_size) < data.shape[0]:
             batch = data[i:i+batch_size, :]
@@ -193,10 +192,10 @@ for epoch in range(1):
             batch = data[i:, :]
             current_batch_size = data.shape[0] - i
         cell_emb, loss = forward(batch, current_batch_size)
-        cell_embs.append(cell_emb)
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
+        n += 1
         torch.cuda.synchronize()
         end_time = time.time()
         batch_time = end_time - start_time
@@ -205,11 +204,23 @@ for epoch in range(1):
         # Print and log the loss
         print(f"loss: {loss.item()}, epoch {epoch}, step {n}, cells {i} to {i+batch_size} of {data.shape[0]}")
         print(f"Processing speed: {cells_per_second:.2f} cells/second")
-        with open('logs/loss_log.csv', 'a') as f:
+        with open('logs/loss_log_1_shuffled_epoch.csv', 'a') as f:
             f.write(f"{epoch},{n},{loss.item()},{cells_per_second}\n")
 
         n += 1        
         i += batch_size
+
+#sample the whole dataset
+data = torch.from_numpy(adata.X.toarray()).to(device)
+with torch.no_grad():   
+    i = 0
+    while i < data.shape[0]:
+        batch = data[i:i+batch_size, :]
+        current_batch_size = batch_size
+        cell_emb, loss = forward(batch, current_batch_size)
+        cell_embs.append(cell_emb)
+        i += batch_size
+
 cell_embs = torch.cat(cell_embs, dim=0)
-torch.save(cell_embs.cpu(), 'cell_emb.pt')
-torch.save(model.state_dict(), 'model_state_dict_1_epoch.pt')
+torch.save(cell_embs.cpu(), 'cell_emb_1_shuffled_epoch.pt')
+torch.save(model.state_dict(), 'model_state_dict_1_shuffled_epoch.pt')
