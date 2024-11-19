@@ -156,7 +156,7 @@ def forward(batch, current_batch_size):
     batch = torch.log1p(batch)
     batch = batch / torch.sum(batch, dim=1, keepdim=True)
 
-    batch = torch.multinomial(batch, 1023, replacement=True)
+    batch = torch.multinomial(batch, (set_size -1), replacement=True)
     
     batch = model.pe_embedding(batch)
     batch = batch.permute(1, 0, 2)
@@ -204,7 +204,7 @@ for epoch in range(1):
         # Print and log the loss
         print(f"loss: {loss.item()}, epoch {epoch}, step {n}, cells {i} to {i+batch_size} of {data.shape[0]}")
         print(f"Processing speed: {cells_per_second:.2f} cells/second")
-        with open('logs/loss_log_1_shuffled_epoch.csv', 'a') as f:
+        with open('logs/loss_log_1L_shuffled_epoch.csv', 'a') as f:
             f.write(f"{epoch},{n},{loss.item()},{cells_per_second}\n")
 
         n += 1        
@@ -222,5 +222,5 @@ with torch.no_grad():
         i += batch_size
 
 cell_embs = torch.cat(cell_embs, dim=0)
-torch.save(cell_embs.cpu(), 'cell_emb_1_shuffled_epoch.pt')
-torch.save(model.state_dict(), 'model_state_dict_1_shuffled_epoch.pt')
+torch.save(cell_embs.cpu(), 'cell_emb_1L_shuffled_epoch.pt')
+torch.save(model.state_dict(), 'model_state_dict_1L_shuffled_epoch.pt')
