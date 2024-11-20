@@ -59,11 +59,11 @@ class TransformerModel(nn.Module):
         self.cls_token = nn.Parameter(torch.randn(1, 1, self.d_model))
         self.pe_embedding.requires_grad_(False)
 
-        self.binary_decoder = nn.Sequential(
-            full_block(2 * self.d_model, 2048, self.dropout),
+        self.class_decoder = nn.Sequential(
+            full_block(self.d_model, 2048, self.dropout),
             full_block(2048, 512, self.dropout),
             full_block(512, 128, self.dropout),
-            nn.Linear(128, 1)
+            nn.Linear(128, 12)
         )
         self.apply(self._init_weights)
 
@@ -72,11 +72,11 @@ class TransformerModel(nn.Module):
             if module.bias is not None:
                 torch.nn.init.zeros_(module.bias)
 
-    def forward(self, src: Tensor, g_plus: Tensor, g_minus: Tensor):
+    def forward(self, src: Tensor, labels: Tensor):
         """
         Args:
             src: Tensor, shape [set_size, batch_size, token_dim] -- torch.Size([32, 1023, 5120])
-            counts: Tensor, shape [batch_size, n_genes]
+            labels: Tensor, shape [batch_size, 12]
         Returns:
             output Tensor of shape [batch_size, d_model]
         """
@@ -91,24 +91,9 @@ class TransformerModel(nn.Module):
         embedding = output[0, :, :] # select only the CLS token
         #import code; code.interact(local=locals())
         embedding = nn.functional.normalize(embedding, dim=1) # Normalize
+        preds = self.class_decoder(embedding)
+        loss = torch.nn.CrossEntropyLoss()(preds, labels.long())
         
-        #loss calculation
-        g_plus = g_plus.to(device)
-        g_minus = g_minus.to(device)
-        g_plus = self.encoder(g_plus) * math.sqrt(self.d_model)
-        g_minus = self.encoder(g_minus) * math.sqrt(self.d_model)
-        g_plus = torch.cat((g_plus, embedding.expand(self.n_loss, batch_size, self.d_model)), dim=2)
-        g_minus = torch.cat((g_minus, embedding.expand(self.n_loss, batch_size, self.d_model)), dim=2)
-        
-        g_plus = self.binary_decoder(g_plus)
-        g_minus = self.binary_decoder(g_minus)  
-
-        loss = None
-        bce_loss = torch.nn.BCEWithLogitsLoss()
-        loss = bce_loss(g_plus, torch.ones(self.n_loss, batch_size, 1).cuda())
-        loss += bce_loss(g_minus, torch.zeros(self.n_loss, batch_size, 1).cuda())
-        loss = loss / 2
-
         return embedding, loss
 ################################################################################
 ########################## Model initialization ################################
@@ -141,17 +126,11 @@ total_params = sum(p.numel() for p in model.parameters())
 print(f'Total parameters: {total_params:,}')
 print(f'Trainable parameters: {trainable_params:,}')
 
-def forward(batch, current_batch_size):
+def forward(batch, current_batch_size, labels):
     #randomly select n_loss expressed and n_loss not eexpressed genes for loss calculation
     batch4loss = batch.clone()
     batch4loss[batch4loss != 0] = 1
 
-    g_plus = torch.multinomial(batch4loss, n_loss, replacement=True)
-    g_minus = torch.multinomial(1 - batch4loss, n_loss, replacement=True)
-    g_plus = model.pe_embedding(g_plus)
-    g_minus = model.pe_embedding(g_minus)
-    g_plus = g_plus.permute(1, 0, 2)
-    g_minus = g_minus.permute(1, 0, 2)
 
     batch = torch.log1p(batch)
     batch = batch / torch.sum(batch, dim=1, keepdim=True)
@@ -162,7 +141,7 @@ def forward(batch, current_batch_size):
     batch = batch.permute(1, 0, 2)
 
     with torch.autocast(device_type=device.type, dtype=torch.bfloat16):
-        cell_emb, loss = model(batch, g_plus, g_minus)
+        cell_emb, loss = model(batch, labels)
     return cell_emb, loss
 
 
@@ -173,25 +152,53 @@ optimizer = torch.optim.AdamW(model.parameters(), lr=3e-4)
 
 adata = sc.read_h5ad('human_tongue.h5ad')
 data = torch.from_numpy(adata.X.toarray()).to(device)
+
+all_labels = adata.obs['cell_type']
+
+#convert labels to tensor
+classes = all_labels.unique()
+
+type2idx = {}   
+for i, label in enumerate(classes):
+    type2idx[label] = i
+idx2type = {v: k for k, v in type2idx.items()}
+
+import pickle
+with open('type2idx.pkl', 'wb') as f:
+    pickle.dump(type2idx, f)
+with open('idx2type.pkl', 'wb') as f:
+    pickle.dump(idx2type, f)
+
+
+all_labels = [type2idx[label] for label in all_labels]
+all_labels = torch.tensor(all_labels).to(device)
+
+ysxs = torch.cat((all_labels.unsqueeze(1), data), dim=1)
+
 cell_embs = []
 total_time = 0
 total_tokens = 0
 n = 0
 
 
-for epoch in range(1):
+for epoch in range(10):
     i = 0  # Reset i at the start of each epoch
     #shuffle the data
-    data = data[torch.randperm(data.size(0))]
-    while i < data.shape[0]:
+    ysxs2 = ysxs[torch.randperm(ysxs.size(0))]
+    while i < ysxs2.shape[0]:
+        data = ysxs2[:,1:]
+        all_shuffled_labels = ysxs2[:,0]
+
         start_time = time.time()
         if (i + batch_size) < data.shape[0]:
             batch = data[i:i+batch_size, :]
+            labels = all_shuffled_labels[i:i+batch_size]
             current_batch_size = batch_size
         else:
             batch = data[i:, :]
+            labels = all_shuffled_labels[i:]
             current_batch_size = data.shape[0] - i
-        cell_emb, loss = forward(batch, current_batch_size)
+        cell_emb, loss = forward(batch, current_batch_size, labels)
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
@@ -204,23 +211,27 @@ for epoch in range(1):
         # Print and log the loss
         print(f"loss: {loss.item()}, epoch {epoch}, step {n}, cells {i} to {i+batch_size} of {data.shape[0]}")
         print(f"Processing speed: {cells_per_second:.2f} cells/second")
-        with open('logs/loss_log_1L_shuffled_epoch.csv', 'a') as f:
+        with open('logs/loss_class_10epoch.csv', 'a') as f:
             f.write(f"{epoch},{n},{loss.item()},{cells_per_second}\n")
 
         n += 1        
         i += batch_size
 
 #sample the whole dataset
-data = torch.from_numpy(adata.X.toarray()).to(device)
+
+
 with torch.no_grad():   
     i = 0
-    while i < data.shape[0]:
+    while i < ysxs.shape[0]:
+        all_labels = ysxs[:,0] 
+        data = ysxs[:,1:]
         batch = data[i:i+batch_size, :]
+        labels = all_labels[i:i+batch_size]
         current_batch_size = batch_size
-        cell_emb, loss = forward(batch, current_batch_size)
+        cell_emb, loss = forward(batch, current_batch_size, labels)
         cell_embs.append(cell_emb)
         i += batch_size
 
 cell_embs = torch.cat(cell_embs, dim=0)
-torch.save(cell_embs.cpu(), 'cell_emb_1L_shuffled_epoch.pt')
-torch.save(model.state_dict(), 'model_state_dict_1L_shuffled_epoch.pt')
+torch.save(cell_embs.cpu(), 'cell_class_10epoch.pt')
+torch.save(model.state_dict(), 'model_class_10epoch.pt')
